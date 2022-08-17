@@ -1,1 +1,1 @@
-dummy project - travel site
+dummy project - travel destination site
