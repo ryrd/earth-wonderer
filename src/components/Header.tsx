@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
-import night from '../assets/header/night/bg-night.mp4'
+import bgNight from '../assets/header/night/bg-night.mp4'
+import bgDay from '../assets/header/day/bg-day.mp4'
 import Youtube from './Youtube'
 
 const Header = () => {
@@ -7,17 +8,16 @@ const Header = () => {
   let accelamount = .1;
   let scrollpos = 0;
   let delay = 0;
-  const vidRef = useRef(null);
   
   useEffect(() => {
     const vid = document.querySelector('#vid') as any;
-    
+      
     const scrollplay = () => {
       delay += (scrollpos-delay)*accelamount;
       vid.currentTime = delay;
     }
 
-    const setScrollPos = () => scrollpos = window.scrollY/90;
+    const setScrollPos = () => scrollpos = window.scrollY/120;
    
     window.addEventListener('scroll', () => setScrollPos())
   
@@ -33,7 +33,7 @@ const Header = () => {
 
   return (
     <>
-        <video src={night} id='vid' ref={vidRef}></video>
+        <video src={bgDay} id='vid'></video>
         <div>
             <Youtube link={'vpvmhpzGi_Q?start=124'}/>
             <Youtube link={'f6h9oafR7hM'}/>
