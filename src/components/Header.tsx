@@ -21,13 +21,14 @@ const Header = () => {
    
     window.addEventListener('scroll', () => setScrollPos())
   
-    setInterval(() => {
+    const videoInterval = setInterval(() => {
       if (scrollpos < 3) scrollplay()
       else return
     }, 33.33);
 
     return () => {
-      window.addEventListener('scroll', () => setScrollPos())
+      window.addEventListener('scroll', () => setScrollPos());
+      clearInterval(videoInterval)
     }
   }, [])
 
