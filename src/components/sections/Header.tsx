@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import bgNight from '../assets/header/night/bg-night.mp4'
 import bgDay from '../assets/header/day/bg-day.mp4'
-import Youtube from './Youtube'
+import Youtube from '../parts/Youtube'
 
 const Header = () => {
     
