@@ -32,7 +32,7 @@ const Header = () => {
   let mountainOneSpeed = -60;
   let mountainTwoSpeed = -40;
 
-  const title = useRef<HTMLDivElement|null>(null: null);
+  const title = useRef<HTMLDivElement|null>(null);
 
   const [personHorizontalValue, setPersonHorizontalValue] = useState(0);
   const [mountainOneHorizontalValue, setMountainOneHorizontalValue] = useState(0);
@@ -60,7 +60,9 @@ const Header = () => {
     window.addEventListener('scroll', () => {
       setScrollPos();
 
+      // @ts-ignore
       if(window.scrollY > 10) title.current.style.opacity = '0';
+      // @ts-ignore
       else title.current.style.opacity = '1';
     });
   
