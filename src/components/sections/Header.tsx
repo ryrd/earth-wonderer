@@ -62,6 +62,7 @@ const Header = () => {
   let delay = 0;
 
   // main title ref
+  const parallaxContainerRef = useRef(null);
   let title = useRef<HTMLDivElement>(null);
 
   // ------------horizontal parallax variable---------
@@ -70,13 +71,10 @@ const Header = () => {
   const [mountainTwoHorizontalValue, setMountainTwoHorizontalValue] = useState(0);
 
   // ------------vertical speed variable-----------
-  const {scrollY} = useScroll();
-  let personSpeed = -110;
-  let mountainOneSpeed = -60;
-  let mountainTwoSpeed = -40;
-  const personVerticalValue = useTransform(scrollY,[0, window.innerHeight], [0, personSpeed])
-  const mountainOneVerticalValue = useTransform(scrollY,[0, window.innerHeight], [0, mountainOneSpeed])
-  const mountainTwoVerticalValue = useTransform(scrollY,[0, window.innerHeight], [0, mountainTwoSpeed])
+  const {scrollYProgress} = useScroll({ target: parallaxContainerRef, offset: ["end end", "end start"] });
+  const personVerticalValue = useTransform(scrollYProgress,[0, 1], [0, -125])
+  const mountainOneVerticalValue = useTransform(scrollYProgress,[0, 1], [0, -90])
+  const mountainTwoVerticalValue = useTransform(scrollYProgress,[0, 1], [0, -60])
   
     
   useEffect(() => {
@@ -134,7 +132,8 @@ const Header = () => {
   }, [])
 
   return (
-    <div className='h-[90vh] md:portrait:h-[75vh] md:h-screen relative overflow-hidden'>
+    <div className='h-[90vh] md:portrait:h-[75vh] md:h-screen relative overflow-hidden'
+         ref={parallaxContainerRef}>
       <Toggle/>
 
       <div className='h-full bg-cover'>

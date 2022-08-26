@@ -1,6 +1,5 @@
 import React from 'react'
 import Header from '../components/sections/Header'
-import Map from '../components/parts/Map'
 import About from '../components/sections/About'
 
 const Home = () => {
@@ -8,6 +7,12 @@ const Home = () => {
     <>
         <Header/>
         <About/>
+        <div className='h-screen'></div>
+        <div className='h-screen'></div>
+        <div className='h-screen'></div>
+        <div className='h-screen'></div>
+        <div className='h-screen'></div>
+        <div className='h-screen'></div>
     </>
   )
 }
