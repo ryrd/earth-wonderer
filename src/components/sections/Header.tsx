@@ -72,8 +72,8 @@ const Header = () => {
 
   // ------------vertical speed variable-----------
   const {scrollYProgress} = useScroll({ target: parallaxContainerRef, offset: ["end end", "end start"] });
-  const personVerticalValue = useTransform(scrollYProgress,[0, 1], [0, -125])
-  const mountainOneVerticalValue = useTransform(scrollYProgress,[0, 1], [0, -90])
+  const personVerticalValue = useTransform(scrollYProgress,[0, 1], [0, -130])
+  const mountainOneVerticalValue = useTransform(scrollYProgress,[0, 1], [0, -75])
   const mountainTwoVerticalValue = useTransform(scrollYProgress,[0, 1], [0, -60])
   
     
@@ -119,7 +119,7 @@ const Header = () => {
     //-------horizontal parallax-------
     const horizontalParallax = (e: MouseEvent) => {
       setPersonHorizontalValue((e.pageX*-.05)+25);
-      setMountainOneHorizontalValue((e.pageX*-.02)+25);
+      setMountainOneHorizontalValue((e.pageX*-.015)+25);
       setMountainTwoHorizontalValue((e.pageX*-.01)+25);
     }
     window.addEventListener('mousemove', (e: MouseEvent) => horizontalParallax(e));
@@ -140,7 +140,7 @@ const Header = () => {
         <video src={bgDay} id='vid' className='h-full md:w-screen object-cover'></video>
       </div>
 
-      <motion.picture className='absolute -bottom-[2vh] -right-[15vw] w-[150%] 
+      <motion.picture className='absolute -bottom-[2vh] -right-[15vw] w-[150vw] 
                                           md:-bottom-[10vh] md:-right-[20vw] md:w-full
                                   transition duration-300 ease-out md:transition-none'
                       style={{y: mountainTwoVerticalValue, x: mountainTwoHorizontalValue}}>
@@ -149,7 +149,7 @@ const Header = () => {
           <img src={mountainTwoWebp} />
       </motion.picture>
       
-      <motion.picture className='absolute -left-[30vw] -bottom-[10vw] w-[150%] 
+      <motion.picture className='absolute -left-[30vw] -bottom-[10vw] w-[150vw] 
                                           md:-left-[15vw] md:-bottom-[13vh] md:w-full
                                   transition duration-300 ease-out md:transition-none'
                       style={{y: mountainOneVerticalValue, x: mountainOneHorizontalValue}}>
@@ -168,9 +168,9 @@ const Header = () => {
         <h1 className='text-7xl md:text-9xl'>wonderer</h1>
       </motion.div>
 
-      <motion.picture className='absolute -left-[95vw] -bottom-[25vw] w-[280%]
-                                          md:portrait:-left-[6vw] md:portrait:-bottom-[0vh] md:portrait:w-[110%]
-                                          md:-left-[1vw] md:-bottom-[15vh] md:w-full
+      <motion.picture className='absolute -left-[95vw] -bottom-[25vw] w-[280vw]
+                                          md:portrait:-left-[6vw] md:portrait:-bottom-[0vh] md:portrait:w-[110vw]
+                                          md:-left-[1vw] md:-bottom-[17vh] md:w-full
                                   transition duration-300 ease-out md:transition-none'
                       style={{y: personVerticalValue, x: personHorizontalValue}}>
           <source srcSet={personDayWebp} type="image/webp"/>
