@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../components/sections/Header'
 import AboutSite from '../components/sections/AboutSite'
 import Destinations from '../components/sections/Destinations'
+import Footer from '../components/sections/Footer'
 
 const Home = () => {
   return (
@@ -9,7 +10,7 @@ const Home = () => {
         <Header/>
         <AboutSite/>
         <Destinations/>
-        <div className="h-screen"></div>
+        <Footer/>
     </>
   )
 }

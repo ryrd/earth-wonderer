@@ -19,7 +19,7 @@ const DestinationBox = ({id, photo, name}: destinationBoxData) => {
         <div className='relative portrait:h-[30vh] landscape:h-[90vh] overflow-hidden flex items-end'
              ref={imgRef}>
             <motion.img src={`https://source.unsplash.com/${photo}`} 
-                        className='w-[100%] portrait:h-[150%] landscape:h-[120%] object-cover'
+                        className='w-[100%] portrait:h-[180%] landscape:h-[120%] object-cover'
                         style={{y: imgParallaxValue}}
                         />
             <Link to={`/destination/${id}`}>

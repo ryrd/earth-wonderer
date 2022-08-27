@@ -1,7 +1,7 @@
-import { useEffect, useState, useRef } from 'react'
-import {motion, useScroll,useSpring, useTransform, Variants} from 'framer-motion'
-import Toggle from '../parts/Toggle'
-import arrow from '../../assets/arrow.svg'
+import { useEffect, useState, useRef } from 'react';
+import {motion, useScroll,useSpring, useTransform, Variants} from 'framer-motion';
+import Toggle from '../parts/Toggle';
+import arrow from '../../assets/arrow.svg';
 
 // ---------import day assets-----------
 import bgDay from '../../assets/header/day/bg-day.mp4'
@@ -78,7 +78,6 @@ const Header = () => {
   const mountainOneVerticalValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [0, -65])
   const mountainTwoVerticalValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [0, -50])
   
-    
   useEffect(() => {
     //select bg video
     const vid = document.querySelector('#vid') as any;
@@ -110,7 +109,7 @@ const Header = () => {
         title.current.style.filter = 'blur(0)';
         // @ts-ignore
         title.current.style.transform = 'translate(-50%, 0px)';
-      };
+      }
     });
   
     const videoInterval = setInterval(() => {

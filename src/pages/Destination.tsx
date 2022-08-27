@@ -1,10 +1,15 @@
-import React from 'react'
+import {useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 
 const Destination = () => {
   const {id} = useParams();
+
+  useEffect(() => {
+
+  }, [])
+  
   return (
-    <div>{id} test</div>
+    <div className=''>{id} test</div>
   )
 }
 
