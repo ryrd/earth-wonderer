@@ -6,6 +6,20 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      white: '#ffffff',
+      black: '#000000',
+      blue : {
+        900 : '#1e3a8a'
+      },
+      neutral : {
+        900 : '#171717'
+      },
+      offwhite: '#d9d9d9',
+      dark: '#090909'
+    },
     fontFamily: {
       'anton' : ['Anton'],
       'oswald' : ['Oswald'],

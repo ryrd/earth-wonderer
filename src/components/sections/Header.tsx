@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
-import {motion, useScroll, useTransform, Variants} from 'framer-motion'
+import {motion, useScroll,useSpring, useTransform, Variants} from 'framer-motion'
 import Toggle from '../parts/Toggle'
 import arrow from '../../assets/arrow.svg'
 
@@ -61,8 +61,9 @@ const Header = () => {
   let scrollpos = 0;
   let delay = 0;
 
-  // main title ref
+  //header ref for parallax imgs
   const parallaxContainerRef = useRef(null);
+  // main title ref
   let title = useRef<HTMLDivElement>(null);
 
   // ------------horizontal parallax variable---------
@@ -72,9 +73,10 @@ const Header = () => {
 
   // ------------vertical speed variable-----------
   const {scrollYProgress} = useScroll({ target: parallaxContainerRef, offset: ["end end", "end start"] });
-  const personVerticalValue = useTransform(scrollYProgress,[0, 1], [0, -130])
-  const mountainOneVerticalValue = useTransform(scrollYProgress,[0, 1], [0, -75])
-  const mountainTwoVerticalValue = useTransform(scrollYProgress,[0, 1], [0, -60])
+  const smoothSettings = {stiffness: 150, damping: 30, restDelta: 0.01};
+  const personVerticalValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [0, -130])
+  const mountainOneVerticalValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [0, -65])
+  const mountainTwoVerticalValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [0, -50])
   
     
   useEffect(() => {
@@ -161,11 +163,11 @@ const Header = () => {
       <motion.div className='absolute top-[15vh] md:top-[13vh] text-white font-anton uppercase text-center left-1/2 -translate-x-1/2 drop-shadow-md transition duration-700 ease-out'
                   ref={title} variants={container} initial='initial' animate='animate'>
         <div className='flex items-center justify-center'>
-          <div className='h-[2px] portrait:w-[20vw] landscape:w-[10vw] bg-gradient-to-r from-transparent to-[#d9d9d9]'></div>
-          <h1 className='text-5xl md:text-7xl mx-4'>earth</h1>
-          <div className='h-[2px] portrait:w-[20vw] landscape:w-[10vw] bg-gradient-to-l from-transparent to-[#d9d9d9]'></div>
+          <div className='h-[2px] portrait:w-[20vw] landscape:w-[10vw] bg-gradient-to-r from-transparent to-offwhite'></div>
+          <h1 className='text-5xl md:text-[5vw] mx-4'>earth</h1>
+          <div className='h-[2px] portrait:w-[20vw] landscape:w-[10vw] bg-gradient-to-l from-transparent to-offwhite'></div>
         </div>
-        <h1 className='text-7xl md:text-9xl'>wonderer</h1>
+        <h1 className='text-7xl md:text-[10vw]'>wonderer</h1>
       </motion.div>
 
       <motion.picture className='absolute -left-[95vw] -bottom-[25vw] w-[280vw]
