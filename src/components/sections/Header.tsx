@@ -143,7 +143,7 @@ const Header = () => {
       </div>
 
       <motion.picture className='absolute -bottom-[2vh] -right-[15vw] w-[150vw] 
-                                          md:-bottom-[10vh] md:-right-[20vw] md:w-full
+                                          md:-bottom-[10vh] md:-right-[20vw] md:w-screen
                                   transition duration-300 ease-out md:transition-none'
                       style={{y: mountainTwoVerticalValue, x: mountainTwoHorizontalValue}}>
           <source src={mountainTwoWebp} type="image/webp"/>
@@ -152,7 +152,7 @@ const Header = () => {
       </motion.picture>
       
       <motion.picture className='absolute -left-[30vw] -bottom-[10vw] w-[150vw] 
-                                          md:-left-[15vw] md:-bottom-[13vh] md:w-full
+                                          md:-left-[15vw] md:-bottom-[13vh] md:w-screen
                                   transition duration-300 ease-out md:transition-none'
                       style={{y: mountainOneVerticalValue, x: mountainOneHorizontalValue}}>
           <source src={mountainOneWebp} type="image/webp"/>
@@ -172,7 +172,7 @@ const Header = () => {
 
       <motion.picture className='absolute -left-[95vw] -bottom-[25vw] w-[280vw]
                                           md:portrait:-left-[6vw] md:portrait:-bottom-[0vh] md:portrait:w-[110vw]
-                                          md:-left-[1vw] md:-bottom-[17vh] md:w-full
+                                          md:-left-[1vw] md:-bottom-[17vh] md:w-screen
                                   transition duration-300 ease-out md:transition-none'
                       style={{y: personVerticalValue, x: personHorizontalValue}}>
           <source srcSet={personDayWebp} type="image/webp"/>

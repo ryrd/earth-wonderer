@@ -4,7 +4,7 @@ import tryIt from '../../assets/arrow try.svg';
 const Toggle = () => {
   return (
     <>
-      <button className='bg-black hover:bg-neutral-900 bg-opacity-90 w-[31vw] md:w-[10vw] h-12 md:h-16 absolute top-0 right-0 flex justify-center items-center text-white font-oswald font-light text-base md:text-lg gap-3 z-50 duration-100'>
+      <button className='bg-black hover:bg-neutral-900 bg-opacity-90 w-[31vw] md:w-[10vw] h-12 md:h-16 absolute top-0 right-0 flex justify-center items-center text-white font-oswald font-light text-base md:text-lg gap-3 z-50 duration-200'>
         dark mode
         <img src={moon} alt="dark mode toggle" className='h-5 md:h-7' />
       </button>
