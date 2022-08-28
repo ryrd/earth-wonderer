@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import {motion, useScroll,useSpring, useTransform, Variants} from 'framer-motion';
+import {motion, useScroll, useSpring, useTransform, Variants} from 'framer-motion';
 import Toggle from '../parts/Toggle';
 import arrow from '../../assets/arrow.svg';
 
@@ -27,22 +27,23 @@ import mountainTwoNightPng from '../../assets/header/night/mountain-2-night.png'
 import mountainTwoNightWebp from '../../assets/header/night/mountain-2-night.webp'
 
 // -------------animation variant---------------
-const container: Variants = {
-  animate: {
-    transition: {
-      duration: 1,
-      delayChildren: .5,
-      staggerChildren: .25
-    }
-  },
-}
-
-const title = {
+const titleAnim: Variants = {
   initial: {
+    filter : 'blur(20px)',
     opacity : 0,
+    scale: .7,
+    x: '-50%',
   },
   animate: {
+    filter : 'blur(0px)',
     opacity : 1,
+    scale: 1,
+    x: '-50%',
+    transition: {
+      duration: .5,
+      delay: .5,
+      ease: [.21,.8,.19,.98]
+    }
   }
 }
 
@@ -64,7 +65,7 @@ const Header = () => {
   //header ref for parallax imgs
   const parallaxContainerRef = useRef(null);
   // main title ref
-  let title = useRef<HTMLDivElement>(null);
+  let title = useRef<HTMLDivElement|null>(null);
 
   // ------------horizontal parallax variable---------
   const [personHorizontalValue, setPersonHorizontalValue] = useState(0);
@@ -94,22 +95,22 @@ const Header = () => {
     window.addEventListener('scroll', () => {
       setScrollPos();
 
-      if(window.scrollY > 10) {
-        // @ts-ignore
-        title.current.style.opacity = '0'
-        // @ts-ignore
-        title.current.style.filter = 'blur(12px)';
-        // @ts-ignore
-        title.current.style.transform = 'translate(-50%, -50px)';
-      }
-      else {
-        // @ts-ignore
-        title.current.style.opacity = '1';
-        // @ts-ignore
-        title.current.style.filter = 'blur(0)';
-        // @ts-ignore
-        title.current.style.transform = 'translate(-50%, 0px)';
-      }
+      // if(window.scrollY > 10) {
+      //   // @ts-ignore
+      //   title.current.style.opacity = '0'
+      //   // @ts-ignore
+      //   title.current.style.filter = 'blur(12px)';
+      //   // @ts-ignore
+      //   title.current.style.transform = 'translate(-50%, -50px)';
+      // }
+      // else {
+      //   // @ts-ignore
+      //   title.current.style.opacity = '1';
+      //   // @ts-ignore
+      //   title.current.style.filter = 'blur(0)';
+      //   // @ts-ignore
+      //   title.current.style.transform = 'translate(-50%, 0px)';
+      // }
     });
   
     const videoInterval = setInterval(() => {
@@ -159,12 +160,12 @@ const Header = () => {
           <img src={mountainOneWebp} />
       </motion.picture>
 
-      <motion.div className='absolute top-[15vh] md:top-[13vh] text-white font-anton uppercase text-center left-1/2 -translate-x-1/2 drop-shadow-md transition duration-700 ease-out'
-                  ref={title} variants={container} initial='initial' animate='animate'>
+      <motion.div className='absolute top-[15vh] md:top-[13vh] text-white font-anton uppercase text-center left-1/2 -translate-x-1/2 drop-shadow-lg transition duration-700 ease-out'
+                  ref={title} variants={titleAnim} initial='initial' animate='animate'>
         <div className='flex items-center justify-center'>
-          <div className='h-[2px] portrait:w-[20vw] landscape:w-[10vw] bg-gradient-to-r from-transparent to-offwhite'></div>
+          <div className='h-[2px] portrait:w-[20vw] landscape:w-[10vw] bg-gradient-to-r from-transparent to-offwhite'/>
           <h1 className='text-5xl md:text-[5vw] mx-4'>earth</h1>
-          <div className='h-[2px] portrait:w-[20vw] landscape:w-[10vw] bg-gradient-to-l from-transparent to-offwhite'></div>
+          <div className='h-[2px] portrait:w-[20vw] landscape:w-[10vw] bg-gradient-to-l from-transparent to-offwhite'/>
         </div>
         <h1 className='text-7xl md:text-[10vw]'>wonderer</h1>
       </motion.div>
@@ -182,8 +183,8 @@ const Header = () => {
       <div className='absolute bottom-0 h-[80px] md:h-[100px] w-full header-gradient'></div>
 
       <motion.div className='absolute bottom-[3vh] md:bottom-[5vh] left-1/2 -translate-x-1/2 font-oswald text-white font-light flex flex-col items-center text-sm md:text-base'
-                  variants={container} initial='initial' animate='animate'>
-        <motion.span variants={scroll}>scroll down to explore</motion.span>
+                  variants={titleAnim} initial='initial' animate='animate'>
+        <motion.span variants={scroll} className='tracking-wide'>scroll down to explore</motion.span>
         <motion.img variants={scroll} src={arrow} alt="scroll down" className='w-6 scroll-down' />
       </motion.div>
     </div>
