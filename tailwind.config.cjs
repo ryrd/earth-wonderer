@@ -25,7 +25,9 @@ module.exports = {
       'oswald' : ['Oswald'],
       'gilda' : ['Gilda Display'],
     },
-    extend: {},
+    extend: {
+      "headwind.runOnSave": false
+    },
   },
   plugins: [],
 }
