@@ -29,12 +29,8 @@ const DATA: data[] = [
             'PCbyhyqrGAw',
             'zUpyq41hYmU',
             'q6lb0vT1bkA',
-            'PD_4gHa6sLw',
-            'jc3BjKHM3No',
             '69xo9jAyxdI',
             'v7PWME_xW_s',
-            'AghpiPgUfi8',
-            'ILdvA57bUH4',
             'ybviRz7xVAM'
         ]
     },
@@ -58,13 +54,9 @@ const DATA: data[] = [
             'yw1QVKkTbCs',
             'kcg-e5wj_SI',
             'GdnTmarLzqw',
-            '_H2FpqndHy4',
-            'Vcz46esg43c',
             'UFeW0nC-fiI',
             'tym90q1j6eg',
             '7BX-Spuwsj8',
-            'uWePRDtQiIY',
-            'yNpuQfothg8'
         ]
     },
     {

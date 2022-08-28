@@ -5,6 +5,7 @@ import Footer from '../components/sections/Footer';
 import Video from '../components/sections/Video';
 import Toggle from '../components/parts/Toggle';
 import DATA from '../Data';
+import Photos from '../components/sections/Photos';
 
 const Destination = () => {
   const {id} = useParams();
@@ -22,6 +23,7 @@ const Destination = () => {
       <Toggle/>
       <DetailHeader name={data.name} img={data.mainPhoto} location={data.location}/>
       <Video video={data.video} videoOwner={data.videoOwner}/>
+      <Photos photos={data.photos} photosId={data.id}/>
       <Footer/>
     </div>
   )
