@@ -14,7 +14,7 @@ const About = () => {
   const imgRotateTwoValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [0, -10])
 
   return (
-    <div className='relative h-[55vh] md:h-[80vh] flex justify-center md:justify-start items-center flex-col md:pt-[6%] bg-offwhite dark:bg-dark'
+    <div className='relative h-[40vh] md:h-[80vh] flex justify-center md:justify-start items-center flex-col md:pt-[6%] bg-offwhite dark:bg-dark'
          ref={aboutImgsRef}>
       <HomeHeading text='about'/>
       <p className='w-[70vw] md:w-1/2 font-oswald font-light md:text-3xl text-center mt-8 md:mt-10 z-10'>

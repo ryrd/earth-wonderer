@@ -10,7 +10,7 @@ const Toggle = () => {
         dark mode
         <img src={moon} alt="dark mode toggle" className='h-5 md:h-[2vw]' />
       </motion.button>
-      <motion.div className='try-it w-[25vw] md:w-[10vw] h-16 absolute top-14 md:top-20 right-0 flex flex-col justify-center items-center font-oswald font-light text-[#d9d9d9] text-sm md:text-base'
+      <motion.div className='try-it w-[25vw] md:w-[10vw] h-16 absolute top-14 md:top-20 right-0 flex flex-col justify-center items-center font-oswald font-light text-[#d9d9d9] text-sm md:text-base z-50'
                   initial={{opacity: 0}} animate={{opacity: 1, transition: {duration:.7, delay: 1.35}}}>
         <img src={tryIt} alt="try dark mode img" className='h-6'/>
         try it

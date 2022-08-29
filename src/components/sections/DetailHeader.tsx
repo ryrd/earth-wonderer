@@ -17,7 +17,7 @@ const DetailHeader = ({img, name, location}: detailHeaderProps) => {
     <div className='relative flex items-center w-screen portrait:h-[80vh] landscape:h-screen overflow-hidden'>
       <img className='z-0 object-cover w-full h-full' src={`https://source.unsplash.com/${img}`} alt="heading img" />
       
-      <motion.div className='absolute w-auto portrait:min-h-[10vh] landscape:h-[25vh] z-10 left-0 bottom-0 bg-offwhite text-white bg-opacity-20 backdrop-blur flex flex-col justify-center pl-5 pr-6 md:pl-12 md:pr-14 tracking-wide'
+      <motion.div className='absolute w-auto portrait:min-h-[10vh] landscape:h-[25vh] z-10 left-0 bottom-0 bg-dark text-white bg-opacity-10 backdrop-blur flex flex-col justify-center pl-5 pr-6 md:pl-12 md:pr-14 tracking-wide'
                   initial={{x: '-100%'}}
                   animate={{x: '0%', transition: {duration:1, delay: .2, ease: [.1,.79,.31,.99]}}}>
         <motion.div className='absolute left-0 w-2 md:w-5 h-full bg-dark' 
