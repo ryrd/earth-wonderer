@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import DetailHeader from '../components/sections/DetailHeader';
 import Footer from '../components/sections/Footer';
 import Video from '../components/sections/Video';
@@ -12,18 +12,17 @@ const Destination = () => {
   const {id} = useParams();
   const data = DATA.find(data => data.id === id) || 'not found';
 
-  if (data === 'not found') return <p>data does not exist</p>;
+  if (data === 'not found') return <p>404</p>;
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   
-  
   return (
-    <div className='overflow-x-hidden bg-offwhite'>
+    <div className='overflow-x-hidden bg-offwhite dark:bg-dark'>
       <Toggle/>
       <DetailHeader name={data.name} img={data.mainPhoto} location={data.location}/>
-      <AboutPlace desc={data.desc} mapLink={data.mapLink} img={data.mainPhoto} location={data.location}/>
+      <AboutPlace desc={data.desc} mapLink={data.mapLink} location={data.location}/>
       <Video video={data.video} videoOwner={data.videoOwner}/>
       <Photos photos={data.photos} photosId={data.id}/>
       <Footer/>

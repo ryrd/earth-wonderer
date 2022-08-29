@@ -23,7 +23,7 @@ const DestinationBox = ({id, photo, name}: destinationBoxData) => {
                         style={{y: imgParallaxValue}}
                         />
             <Link to={`/destination/${id}`}>
-                <button className='absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark backdrop-blur-sm bg-opacity-20 border-2 md:border-3 border-white flex items-center px-3 md:py-2 md:px-6'>
+                <button className='absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark backdrop-blur-sm bg-opacity-20 border-2 md:border-3 border-white dark:border-2 flex items-center px-3 md:py-2 md:px-6'>
                     <span className='font-anton uppercase text-white mix-blend-difference tracking-wider text-[7vw] md:text-[5vw]'>{name}</span>
                     <img src={arrow} className='ml-2 md:ml-5 h-[4vh] md:h-[9vh]'/>
                 </button>

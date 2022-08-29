@@ -17,7 +17,7 @@ const About = () => {
     <div className='relative h-[40vh] md:h-[80vh] flex justify-center md:justify-start items-center flex-col md:pt-[6%] bg-offwhite dark:bg-dark'
          ref={aboutImgsRef}>
       <HomeHeading text='about'/>
-      <p className='w-[70vw] md:w-1/2 font-oswald font-light md:text-3xl text-center mt-8 md:mt-10 z-10'>
+      <p className='w-[70vw] md:w-1/2 font-oswald font-light md:text-3xl text-center mt-8 md:mt-10 z-10 dark:text-white dark:font-extralight'>
         <span className='font-oswand uppercase font-bold text-sm md:text-2xl'>Earth Wonderer</span> is a dummy website created by 
         <a href='https://ryrd.github.io' target='_blank'><span className='text-blue-900 font-gilda underline ml-1 md:ml-2'>ryrd</span>.</a> 
         &nbsp; this site is showing 2 cities, Banjarmasin and Kotabaru 

@@ -1,6 +1,7 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useContext } from 'react';
 import {motion, useScroll, useSpring, useTransform, Variants} from 'framer-motion';
 import Toggle from '../parts/Toggle';
+import context from '../../Context';
 import arrow from '../../assets/arrow.svg';
 
 // ---------import day assets-----------
@@ -57,6 +58,8 @@ const scroll: Variants = {
 }
 
 const Header = () => {
+  const {darkMode} = useContext(context);
+
   // ---------video playback variable----------
   let accelamount = .1;
   let scrollpos = 0;
@@ -64,8 +67,6 @@ const Header = () => {
 
   //header ref for parallax imgs
   const parallaxContainerRef = useRef(null);
-  // main title ref
-  let title = useRef<HTMLDivElement|null>(null);
 
   // ------------horizontal parallax variable---------
   const [personHorizontalValue, setPersonHorizontalValue] = useState(0);
@@ -92,26 +93,7 @@ const Header = () => {
     //set scrollY value function
     const setScrollPos = () => scrollpos = window.scrollY/120;
    
-    window.addEventListener('scroll', () => {
-      setScrollPos();
-
-      // if(window.scrollY > 10) {
-      //   // @ts-ignore
-      //   title.current.style.opacity = '0'
-      //   // @ts-ignore
-      //   title.current.style.filter = 'blur(12px)';
-      //   // @ts-ignore
-      //   title.current.style.transform = 'translate(-50%, -50px)';
-      // }
-      // else {
-      //   // @ts-ignore
-      //   title.current.style.opacity = '1';
-      //   // @ts-ignore
-      //   title.current.style.filter = 'blur(0)';
-      //   // @ts-ignore
-      //   title.current.style.transform = 'translate(-50%, 0px)';
-      // }
-    });
+    window.addEventListener('scroll', () => setScrollPos());
   
     const videoInterval = setInterval(() => {
       if (scrollpos < 3) scrollplay()
@@ -139,29 +121,29 @@ const Header = () => {
       <Toggle/>
 
       <div className='h-full bg-cover'>
-        <video src={bgDay} id='vid' className='h-full md:w-screen object-cover'></video>
+        <video src={darkMode ? bgNight : bgDay} id='vid' className='h-full md:w-screen object-cover'></video>
       </div>
 
       <motion.picture className='absolute -bottom-[2vh] -right-[15vw] w-[150vw] 
                                           md:-bottom-[10vh] md:-right-[20vw] md:w-screen
                                   transition duration-300 ease-out md:transition-none'
                       style={{y: mountainTwoVerticalValue, x: mountainTwoHorizontalValue}}>
-          <source src={mountainTwoWebp} type="image/webp"/>
-          <source src={mountainTwoPng} type="image/png"/>
-          <img src={mountainTwoWebp} />
+          <source src={darkMode ? mountainTwoNightWebp : mountainTwoWebp} type="image/webp"/>
+          <source src={darkMode ? mountainTwoNightPng : mountainTwoPng} type="image/png"/>
+          <img src={darkMode ? mountainTwoNightWebp : mountainTwoWebp} />
       </motion.picture>
       
       <motion.picture className='absolute -left-[30vw] -bottom-[10vw] w-[150vw] 
                                           md:-left-[15vw] md:-bottom-[13vh] md:w-screen
                                   transition duration-300 ease-out md:transition-none'
                       style={{y: mountainOneVerticalValue, x: mountainOneHorizontalValue}}>
-          <source src={mountainOneWebp} type="image/webp"/>
-          <source src={mountainOnePng} type="image/png"/>
-          <img src={mountainOneWebp} />
+          <source src={darkMode ? mountainOneNightWebp : mountainOneWebp} type="image/webp"/>
+          <source src={darkMode ? mountainOneNightPng : mountainOnePng} type="image/png"/>
+          <img src={darkMode ? mountainOneNightWebp : mountainOneWebp} />
       </motion.picture>
 
       <motion.div className='absolute top-[15vh] md:top-[13vh] text-white font-anton uppercase text-center left-1/2 -translate-x-1/2 drop-shadow-lg transition duration-700 ease-out'
-                  ref={title} variants={titleAnim} initial='initial' animate='animate'>
+                  variants={titleAnim} initial='initial' animate='animate'>
         <div className='flex items-center justify-center'>
           <div className='h-[2px] portrait:w-[20vw] landscape:w-[10vw] bg-gradient-to-r from-transparent to-offwhite'/>
           <h1 className='text-5xl md:text-[5vw] mx-4'>earth</h1>
@@ -175,12 +157,12 @@ const Header = () => {
                                           md:-left-[1vw] md:-bottom-[17vh] md:w-screen
                                   transition duration-300 ease-out md:transition-none'
                       style={{y: personVerticalValue, x: personHorizontalValue}}>
-          <source srcSet={personDayWebp} type="image/webp"/>
-          <source srcSet={personDayPng} type="image/png"/>
-          <img src={personDayWebp} />
+          <source srcSet={darkMode ? personNightWebp : personDayWebp} type="image/webp"/>
+          <source srcSet={darkMode ? personNightPng : personDayPng} type="image/png"/>
+          <img src={darkMode ? personNightWebp : personDayWebp} />
       </motion.picture>
 
-      <div className='absolute bottom-0 h-[80px] md:h-[100px] w-full header-gradient'></div>
+      <div className={`absolute bottom-0 h-[80px] md:h-[100px] w-full ${darkMode ? 'header-gradient-dark' : 'header-gradient'}`}></div>
 
       <motion.div className='absolute bottom-[3vh] md:bottom-[5vh] left-1/2 -translate-x-1/2 font-oswald text-white font-light flex flex-col items-center text-sm md:text-base'
                   variants={titleAnim} initial='initial' animate='animate'>

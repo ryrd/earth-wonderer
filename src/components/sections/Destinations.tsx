@@ -6,7 +6,7 @@ import DestinationBox from '../parts/DestinationBox';
 const Destinations = () => {
   
   return (
-    <div className='bg-offwhite'>
+    <div className='bg-offwhite dark:bg-dark'>
       <HomeHeading text='Destinations'/>
       <div className='w-full h-12'></div>
       {DATA.map(data => (
