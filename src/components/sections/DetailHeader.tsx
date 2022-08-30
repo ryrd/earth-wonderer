@@ -12,9 +12,9 @@ interface detailHeaderProps {
 
 const DetailHeader = ({img, name, location}: detailHeaderProps) => {
   const imgRef = useRef(null);
-  const {scrollYProgress} = useScroll({ target: imgRef, offset: ["end end", "end start"] });
+  const {scrollYProgress} = useScroll({ target: imgRef, offset: ["start start", "end start"] });
   const smoothSettings = {stiffness: 100, damping: 35, restDelta: 0.0005};
-  const imgScaleValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [1, 1.2]);
+  const imgScaleValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [1, 1.25]);
   
   const navigate =  useNavigate();
   
@@ -55,7 +55,7 @@ const DetailHeader = ({img, name, location}: detailHeaderProps) => {
       </motion.div>
 
       <motion.button className='absolute top-[3%] portrait:left-[6%] landscape:left-[2%] z-10 radial-gradient w-[15vw] h-[15vw] md:w-[5vw] md:h-[5vw] flex justify-center items-center'
-              onClick={() => navigate(-1)}
+              onClick={() => navigate('/')}
               initial={{scale: .3, opacity: 0}}
               animate={{scale: 1, opacity: 1, transition: {duration: .8, delay: .3, ease: [.1,.79,.31,.99]}}}>
         <img src={arrowBack} className='h-[50%]' alt="back home button"/>
