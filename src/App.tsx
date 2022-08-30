@@ -10,10 +10,7 @@ function App() {
   return (
     <ContextProvider>
       <div className='overflow-x-hidden'>
-        <AnimatePresence 
-                        //  mode='wait' 
-                        //  initial={false}
-                         >
+        <AnimatePresence>
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/destination/:id' element={<Destination/>}/>

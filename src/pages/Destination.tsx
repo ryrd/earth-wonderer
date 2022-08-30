@@ -7,10 +7,13 @@ import Toggle from '../components/parts/Toggle';
 import DATA from '../Data';
 import Photos from '../components/sections/Photos';
 import AboutPlace from '../components/sections/AboutPlace';
+import FullPhoto from '../components/sections/FullPhoto';
 
 const Destination = () => {
   const {id} = useParams();
   const data = DATA.find(data => data.id === id) || 'not found';
+
+  const [selectedPhoto, setSelectedPhoto] = useState<string|null>(null);
 
   if (data === 'not found') return <p>404</p>;
 
@@ -24,8 +27,10 @@ const Destination = () => {
       <DetailHeader name={data.name} img={data.mainPhoto} location={data.location}/>
       <AboutPlace desc={data.desc} mapLink={data.mapLink} location={data.location}/>
       <Video video={data.video} videoOwner={data.videoOwner}/>
-      <Photos photos={data.photos} photosId={data.id}/>
+      <Photos photos={data.photos} photosId={data.id} setSelectedPhoto={setSelectedPhoto}/>
       <Footer/>
+
+      <FullPhoto selectedPhoto={selectedPhoto} setSelectedPhoto={setSelectedPhoto}/>
     </div>
   )
 }
