@@ -155,7 +155,7 @@ const DATA: data[] = [
     {
         id : 'sumba',
         name : 'sumba',
-        location : 'Indonesia',
+        location : 'East Nusa Tenggara, Indonesia',
         video : 'NkQF5CLdqow?start=561',
         videoOwner : 'Sam Kolder',
         desc : 'Sumba Island is one of the exotic paradises in eastern Indonesia. The vast expanse of savanna, lined limestone hills, and the natural splendor that is so beautiful blends perfectly with the local wisdom of the people who are so special. The majority of the villages on this island are built on hilltops with houses that still carry the traditional concept of thatched roofs.',
