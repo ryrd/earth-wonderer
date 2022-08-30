@@ -55,7 +55,7 @@ const DetailHeader = ({img, name, location}: detailHeaderProps) => {
       </motion.div>
 
       <motion.button className='absolute top-[3%] portrait:left-[6%] landscape:left-[2%] z-10 radial-gradient w-[15vw] h-[15vw] md:w-[5vw] md:h-[5vw] flex justify-center items-center'
-              onClick={() => navigate('/')}
+              onClick={() => navigate(-1)}
               initial={{scale: .3, opacity: 0}}
               animate={{scale: 1, opacity: 1, transition: {duration: .8, delay: .3, ease: [.1,.79,.31,.99]}}}>
         <img src={arrowBack} className='h-[50%]' alt="back home button"/>
