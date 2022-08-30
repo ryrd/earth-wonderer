@@ -1,5 +1,5 @@
 import {useRef} from 'react';
-import {motion, useScroll,useSpring, useTransform} from 'framer-motion'
+import {motion, useScroll, useSpring, useTransform} from 'framer-motion'
 import arrow from '../../assets/arrow.svg';
 import { Link } from 'react-router-dom';
 

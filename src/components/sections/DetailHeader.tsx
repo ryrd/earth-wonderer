@@ -1,5 +1,6 @@
+import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import arrowBack from '../../assets/arrow back.svg';
 import arrowScroll from '../../assets/arrow scroll.svg';
 
@@ -10,6 +11,10 @@ interface detailHeaderProps {
 }
 
 const DetailHeader = ({img, name, location}: detailHeaderProps) => {
+  const imgRef = useRef(null);
+  const {scrollYProgress} = useScroll({ target: imgRef, offset: ["end end", "end start"] });
+  const smoothSettings = {stiffness: 100, damping: 35, restDelta: 0.0005};
+  const imgScaleValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [1, 1.2]);
   
   const navigate =  useNavigate();
   
@@ -17,7 +22,9 @@ const DetailHeader = ({img, name, location}: detailHeaderProps) => {
     <div className='relative flex items-center w-screen portrait:h-[80vh] landscape:h-screen overflow-hidden'>
       <motion.img className='z-0 object-cover w-full h-full' 
                   src={`https://source.unsplash.com/${img}`} 
-                  alt="heading img" 
+                  alt="heading img"
+                  ref={imgRef}
+                  style={{scale: imgScaleValue}}
                   />
       
       <motion.div className='absolute w-auto portrait:min-h-[10vh] landscape:h-[25vh] z-10 left-0 bottom-0 bg-dark text-white bg-opacity-10 backdrop-blur flex flex-col justify-center pl-5 pr-6 md:pl-12 md:pr-14 tracking-wide'
