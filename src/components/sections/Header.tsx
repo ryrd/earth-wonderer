@@ -3,7 +3,6 @@ import {motion, useScroll, useSpring, useTransform, Variants} from 'framer-motio
 import Toggle from '../parts/Toggle';
 import context from '../../Context';
 import arrow from '../../assets/arrow.svg';
-
 // ---------import day assets-----------
 import bgDay from '../../assets/header/day/bg-day.mp4'
 import personDayPng from '../../assets/header/day/person-day.png'
@@ -14,7 +13,6 @@ import mountainOneWebp from '../../assets/header/day/mountain-1.webp'
 
 import mountainTwoPng from '../../assets/header/day/mountain-2.png'
 import mountainTwoWebp from '../../assets/header/day/mountain-2.webp'
-
 // ---------import night assets-----------
 import bgNight from '../../assets/header/night/bg-night.mp4'
 
@@ -32,7 +30,7 @@ const titleAnim: Variants = {
   initial: {
     filter : 'blur(20px)',
     opacity : 0,
-    scale: .7,
+    scale: .5,
     x: '-50%',
   },
   animate: {
@@ -42,7 +40,6 @@ const titleAnim: Variants = {
     x: '-50%',
     transition: {
       duration: .5,
-      delay: .5,
       ease: [.21,.8,.19,.98]
     }
   }
@@ -59,6 +56,8 @@ const scroll: Variants = {
 
 const Header = () => {
   const {darkMode} = useContext(context);
+
+  const [titleUp, setTitleUp] = useState(false);
 
   // ---------video playback variable----------
   let accelamount = .1;
@@ -93,7 +92,11 @@ const Header = () => {
     //set scrollY value function
     const setScrollPos = () => scrollpos = window.scrollY/120;
    
-    window.addEventListener('scroll', () => setScrollPos());
+    window.addEventListener('scroll', () => {
+      setScrollPos();
+      if(window.scrollY > 10) setTitleUp(true)
+      else setTitleUp(false)
+    });
   
     const videoInterval = setInterval(() => {
       if (scrollpos < 3) scrollplay()
@@ -143,7 +146,7 @@ const Header = () => {
       </motion.picture>
 
       <motion.div className='absolute top-[15vh] md:top-[13vh] text-white font-anton uppercase text-center left-1/2 -translate-x-1/2 drop-shadow-lg transition duration-700 ease-out'
-                  variants={titleAnim} initial='initial' animate='animate'>
+                  variants={titleAnim} initial='initial' animate={titleUp ? {y: '-50%', scale: 1} : 'animate'}>
         <div className='flex items-center justify-center'>
           <div className='h-[2px] portrait:w-[20vw] landscape:w-[10vw] bg-gradient-to-r from-transparent to-offwhite'/>
           <h1 className='text-5xl md:text-[5vw] mx-4'>earth</h1>

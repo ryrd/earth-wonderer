@@ -18,7 +18,7 @@ module.exports = {
         900 : '#171717'
       },
       offwhite: '#d9d9d9',
-      dark: '#090909'
+      dark: '#050505'
     },
     fontFamily: {
       'anton' : ['Anton'],

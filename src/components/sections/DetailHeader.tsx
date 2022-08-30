@@ -1,8 +1,9 @@
-import {} from 'react'
+import {useContext} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import arrowBack from '../../assets/arrow back.svg';
 import arrowScroll from '../../assets/arrow scroll.svg';
+import context from '../../Context';
 
 interface detailHeaderProps {
   img: string,
@@ -11,11 +12,16 @@ interface detailHeaderProps {
 }
 
 const DetailHeader = ({img, name, location}: detailHeaderProps) => {
+  const {imgDestination, setImgDestination} = useContext(context);
+
   const navigate =  useNavigate();
   
   return (
     <div className='relative flex items-center w-screen portrait:h-[80vh] landscape:h-screen overflow-hidden'>
-      <img className='z-0 object-cover w-full h-full' src={`https://source.unsplash.com/${img}`} alt="heading img" />
+      <motion.img layoutId={imgDestination} 
+                  className='z-0 object-cover w-full h-full' 
+                  src={`https://source.unsplash.com/${img}`} 
+                  alt="heading img" />
       
       <motion.div className='absolute w-auto portrait:min-h-[10vh] landscape:h-[25vh] z-10 left-0 bottom-0 bg-dark text-white bg-opacity-10 backdrop-blur flex flex-col justify-center pl-5 pr-6 md:pl-12 md:pr-14 tracking-wide'
                   initial={{x: '-100%'}}
@@ -45,7 +51,10 @@ const DetailHeader = ({img, name, location}: detailHeaderProps) => {
       </motion.div>
 
       <motion.button className='absolute top-[3%] portrait:left-[6%] landscape:left-[2%] z-10 radial-gradient w-[15vw] h-[15vw] md:w-[5vw] md:h-[5vw] flex justify-center items-center'
-              onClick={() => navigate(-1)}
+              onClick={() => {
+                setImgDestination(null);
+                navigate(-1);
+              }}
               initial={{scale: .3, opacity: 0}}
               animate={{scale: 1, opacity: 1, transition: {duration: .8, delay: .3, ease: [.1,.79,.31,.99]}}}>
         <img src={arrowBack} className='h-[50%]' alt="back home button"/>
