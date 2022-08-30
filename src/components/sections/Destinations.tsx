@@ -1,4 +1,3 @@
-import {} from 'react';
 import HomeHeading from '../parts/HomeHeading';
 import DATA from '../../Data';
 import DestinationBox from '../parts/DestinationBox';

@@ -10,7 +10,7 @@ const PhotoBox = ({photo, setSelectedPhoto}: photoBoxProps) => {
     const imgRef = useRef(null);
     const {scrollYProgress} = useScroll({ target: imgRef, offset: ["start end", "end start"] });
     const smoothSettings = {stiffness: 150, damping: 30, restDelta: 0.005};
-    const imgParallaxValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [-40, 10]);
+    const imgParallaxValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [-30, 10]);
 
     return (
         <div className='mb-4 overflow-hidden cursor-pointer' 

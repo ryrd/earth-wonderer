@@ -12,10 +12,8 @@ export const ContextProvider = ({children}: {children: ReactNode}) => {
 
     const [darkMode, setDarkMode] = useState(darkModeStorage);
 
-    const [imgDestination, setImgDestination] = useState<string|null>(null);
-
     return (
-        <context.Provider value={{darkMode, setDarkMode, imgDestination, setImgDestination}}>
+        <context.Provider value={{darkMode, setDarkMode}}>
             {children}
         </context.Provider>
     )
