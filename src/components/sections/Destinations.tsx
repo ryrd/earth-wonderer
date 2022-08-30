@@ -9,7 +9,7 @@ const Destinations = () => {
       <HomeHeading text='Destinations'/>
       <div className='w-full portrait:h-8 landscape:h-12'></div>
       {DATA.map(data => (
-        <DestinationBox id={data.id} photo={data.mainPhoto} name={data.name} key={data.id}/>
+        <DestinationBox id={data.id} photo={data.mainPhoto} name={data.name} key={data.id} longText={data.longText}/>
       ))}
     </div>
   )

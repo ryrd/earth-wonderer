@@ -8,6 +8,7 @@ interface data {
     mapLink: string;
     mainPhoto: string;
     photos: string[];
+    longText? : boolean;
 };
 
 const DATA: data[] = [
@@ -28,7 +29,6 @@ const DATA: data[] = [
             'QmK0YATGJJo',
             'PCbyhyqrGAw',
             'zUpyq41hYmU',
-            'q6lb0vT1bkA',
             '69xo9jAyxdI',
             'v7PWME_xW_s',
             'ybviRz7xVAM'
@@ -38,7 +38,7 @@ const DATA: data[] = [
         id : 'ktb',
         name : 'Kotabaru',
         location : 'South Borneo, Indonesia',
-        desc : 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae vero similique corporis quisquam. Optio eius deserunt, aspernatur dolorem blanditiis dicta sint? Nobis praesentium, nisi autem porro molestias eveniet enim quae!',
+        desc : 'Kotabaru Regency is one of the eleven regencies in the Indonesian province of South Kalimantan. It consists of two parts, the smaller but more populated part comprises Laut Island, the largest island off the coast of Kalimantan, together with the smaller Sebuku Island off Laut Island\'s east coast and even smaller islands nearby',
         video : '6KARz7weDfE',
         videoOwner : 'ryrd',
         mapLink : '!1m18!1m12!1m3!1d1744233.8596654863!2d114.90834875968216!3d-3.5251777948728877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de8b80d5947cf2b%3A0xb38304e5bf4399fe!2sKotabaru%20Regency%2C%20South%20Kalimantan!5e1!3m2!1sen!2sid!4v1661568550507!5m2!1sen!2sid',
@@ -65,7 +65,7 @@ const DATA: data[] = [
         location : 'Indian Ocean',
         video : 'vpvmhpzGi_Q?start=124&end=163',
         videoOwner : 'Mikevisuals',
-        desc : 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae vero similique corporis quisquam. Optio eius deserunt, aspernatur dolorem blanditiis dicta sint? Nobis praesentium, nisi autem porro molestias eveniet enim quae!',
+        desc : 'Réunion is an island in the Indian Ocean that is an overseas department and region of France. It is located approximately 950 km east of the island of Madagascar and 175 km southwest of the island of Mauritius.',
         mapLink : '!1m18!1m12!1m3!1d407498.8057801068!2d55.247106240816166!3d-21.134471506963234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2178778110b8e43b%3A0x4a7f8e89ecdbeaf9!2zUsOpdW5pb24!5e1!3m2!1sen!2sid!4v1661569633725!5m2!1sen!2sid',
         mainPhoto : 'gEZWZrP4oZw',
         photos : [
@@ -90,7 +90,7 @@ const DATA: data[] = [
         location : 'Portugal',
         video : '6VQrr6ahkgM',
         videoOwner : 'JoshStrauss',
-        desc : 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae vero similique corporis quisquam. Optio eius deserunt, aspernatur dolorem blanditiis dicta sint? Nobis praesentium, nisi autem porro molestias eveniet enim quae!',
+        desc : 'Madeira Island, which are part of Portugal, are an archipelago of small islands located in the Atlantic Ocean about 350 miles from Morocco. With incredible mountains that rises above the clouds, natural pools carved out of lava rocks, gorgeous cliffs overlooking the ocean, and charming towns.',
         mapLink : '!1m18!1m12!1m3!1d2977994.1251180214!2d-18.80528583182342!3d31.56432785189477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc5fe9a0f8f92eef%3A0xc77e56774ba5e6f!2sMadeira%2C%20Portugal!5e1!3m2!1sen!2sid!4v1661568640966!5m2!1sen!2sid',
         mainPhoto : 'd4pCGPsFz8A',
         photos : [
@@ -113,7 +113,7 @@ const DATA: data[] = [
         location : 'Bolivia',
         video : '5dBl0pC2Gqk',
         videoOwner : 'Yasushi Tanikado',
-        desc : 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae vero similique corporis quisquam. Optio eius deserunt, aspernatur dolorem blanditiis dicta sint? Nobis praesentium, nisi autem porro molestias eveniet enim quae!',
+        desc : 'Salar de Uyuni is the world\'s largest salt flat located in Bolivia, South America, at over 10,000 square kilometres in area. At times the salt flat is covered in very clear water, making it the largest natural mirror in the world.',
         mapLink : '!1m18!1m12!1m3!1d819988.5222068662!2d-68.15250962692474!3d-20.20735277402922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915584b325e18bd7%3A0xce4183a158278b6!2sUyuni%20Salt%20Flat!5e1!3m2!1sen!2sid!4v1661581444043!5m2!1sen!2sid',
         mainPhoto : 'zjuivMSdY-Y',
         photos : [
@@ -127,6 +127,77 @@ const DATA: data[] = [
             '7BG3z3N6zAI',
             'wcIrrQXWkTA',
             'L18akQEC84A'
+        ],
+        longText: true
+    },
+    {
+        id : 'alpesiusi',
+        name : 'alpe di siusi',
+        location : 'Dolomites, Italy',
+        video : 't7QrNnSkjGE?start=1&end=54',
+        videoOwner : 'James Matthews',
+        desc : 'Alpe di Siusi, Seiser Alm, is the largest high altitude alpine meadow in Europe. It\'s plateau up on the Dolomite mountains. This vast pasture is surrounded by the Dolomite mountains making it very unique and incredibly beautiful.',
+        mapLink : '!1m18!1m12!1m3!1d150248.72659740466!2d11.456744944813513!3d46.542365708433515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477814ceb86428af%3A0x9418f3637defc23b!2sSeiser%20Alm!5e1!3m2!1sen!2sid!4v1661839457197!5m2!1sen!2sid',
+        mainPhoto : 't8oHssN7Zc0',
+        photos : [
+            't8oHssN7Zc0',
+            'PoKDG7JKGaQ',
+            '9-wA9ZAIut8',
+            'yj0BKllXEu0',
+            'NaMEEhPFuHg',
+            'XwAh7qef_v0',
+            'PPxXBRp71dI',
+            'vzkJYHVPywE',
+        ],
+        longText: true
+    },
+    
+    {
+        id : 'sumba',
+        name : 'sumba',
+        location : 'Indonesia',
+        video : 'NkQF5CLdqow?start=561',
+        videoOwner : 'Sam Kolder',
+        desc : 'Sumba Island is one of the exotic paradises in eastern Indonesia. The vast expanse of savanna, lined limestone hills, and the natural splendor that is so beautiful blends perfectly with the local wisdom of the people who are so special. The majority of the villages on this island are built on hilltops with houses that still carry the traditional concept of thatched roofs.',
+        mapLink : '!1m18!1m12!1m3!1d848060.077101992!2d119.37181612289284!3d-9.656465555717839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c4b76a8ac72fac5%3A0x130ac8fedf3977f!2sSumba!5e1!3m2!1sen!2sid!4v1661842235961!5m2!1sen!2sid',
+        mainPhoto : 'hYFt6InTIKE',
+        photos : [
+            'hYFt6InTIKE',
+            'SB0rxbS823g',
+            'mEjYP1sZ_vk',
+            'wv4nXf_UVPI',
+            'N4CCcUTQ-k4',
+            '06A7LLF_mdY',
+            'XEzcNAczfZ0',
+            'y3yUwNn6GeI',
+            'KaDkse1Y59g',
+            'bn7mq83_jeU',
+            'Vm-rP7n8-i0',
+            'wzkWlTn_aCA',
+        ]
+    },
+    {
+        id : 'maunakea',
+        name : 'mauna kea',
+        location : 'Hawai\'i',
+        video : 'x2kyHTDOMnM',
+        videoOwner : 'Moe Elsayed',
+        desc : 'Mauna Kea is a dormant volcano on the island of Hawai\'i. Its peak is 4,207.3m above sea level, making it the highest point in the state of Hawai\'i and second-highest peak of an island on Earth. With its high elevation, dry environment, and stable airflow, Mauna Kea\'s summit is one of the best sites in the world for astronomical observation.',
+        mapLink : '!1m18!1m12!1m3!1d12843.858820588708!2d-155.47684837913468!3d19.82063012324505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7953bd819bc89e11%3A0xf9159b9c95991c20!2sMauna%20Kea!5e1!3m2!1sen!2sid!4v1661840067129!5m2!1sen!2sid',
+        mainPhoto : 'pMqlzXuevkI',
+        photos : [
+            'JWyxM71pvT0',
+            'JQNkspNUP3k',
+            '_ynyDGTzTKU',
+            'QqpQ2lU5-sE',
+            'uftqFbfWGFY',
+            '0XUuh7gEHuo',
+            '2CVUXD_O-Fc',
+            'nxLXZqY46eA',
+            'pMqlzXuevkI',
+            'J7GzExD52Go',
+            'tZKgMf9vJkw',
+            'bEX9z0Y4ZAI',
         ]
     },
 ];

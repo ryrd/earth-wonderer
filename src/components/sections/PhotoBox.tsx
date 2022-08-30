@@ -1,4 +1,4 @@
-import {useRef} from 'react';
+import {useRef, useState} from 'react';
 import {motion, useScroll, useSpring, useTransform} from 'framer-motion';
 
 interface photoBoxProps {
@@ -7,10 +7,14 @@ interface photoBoxProps {
 }
 
 const PhotoBox = ({photo, setSelectedPhoto}: photoBoxProps) => {
+    let yParallax;
+    if(window.innerWidth < 500) yParallax = -10
+    else yParallax = -30
+
     const imgRef = useRef(null);
     const {scrollYProgress} = useScroll({ target: imgRef, offset: ["start end", "end start"] });
     const smoothSettings = {stiffness: 150, damping: 30, restDelta: 0.005};
-    const imgParallaxValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [-30, 10]);
+    const imgParallaxValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [yParallax, 10]);
 
     return (
         <div className='mb-4 overflow-hidden cursor-pointer' 
