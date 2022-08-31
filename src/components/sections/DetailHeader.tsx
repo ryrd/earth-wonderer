@@ -34,12 +34,12 @@ const DetailHeader = ({img, name, location}: detailHeaderProps) => {
                     initial={{x: '-100%'}}
                     animate={{x: '0%', transition: {duration:1, delay: .9, ease: [.1,.79,.31,.99]}}}/>
         <div className='overflow-hidden h-[80%] flex flex-col justify-center'>
-          <motion.h6 className='font-oswald text-[3vw] md:text-[1.5vw] font-light'
+          <motion.h6 className='font-oswald text-[3vw] sm:text-[1.5vw] font-light'
                      initial={{x: '-100%'}}
                      animate={{x: '0%', transition: {duration:1, delay: .6, ease: [.1,.79,.31,.99]}}}>
                       {location}
           </motion.h6>
-          <motion.h1 className='font-anton uppercase text-[11vw] md:text-[5.8vw] leading-none'
+          <motion.h1 className='font-anton uppercase text-[11vw] sm:text-[5.8vw] leading-none'
                      initial={{x: '-100%'}}
                      animate={{x: '0%', transition: {duration:1, delay: .4, ease: [.1,.79,.31,.99]}}}>
                       {name}
@@ -54,7 +54,7 @@ const DetailHeader = ({img, name, location}: detailHeaderProps) => {
         <img className='h-12 md:h-20' src={arrowScroll} alt="scroll down indicator"/>
       </motion.div>
 
-      <motion.button className='absolute top-[3%] portrait:left-[6%] landscape:left-[2%] z-10 radial-gradient w-[15vw] h-[15vw] md:w-[5vw] md:h-[5vw] flex justify-center items-center'
+      <motion.button className='absolute top-[3%] portrait:left-[6%] landscape:left-[2%] z-10 radial-gradient w-[15vw] h-[15vw] sm:w-[5vw] sm:h-[5vw] flex justify-center items-center'
               onClick={() => navigate(-1)}
               initial={{scale: .3, opacity: 0}}
               animate={{scale: 1, opacity: 1, transition: {duration: .8, delay: .3, ease: [.1,.79,.31,.99]}}}>

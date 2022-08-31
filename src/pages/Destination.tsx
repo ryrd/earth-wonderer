@@ -8,6 +8,8 @@ import DATA from '../Data';
 import Photos from '../components/sections/Photos';
 import AboutPlace from '../components/sections/AboutPlace';
 import FullPhoto from '../components/sections/FullPhoto';
+import PageTransitionClose from '../components/parts/PageTransitionClose';
+import PageTransitionOpen from '../components/parts/PageTransitionOpen';
 
 const Destination = () => {
   const {id} = useParams();
@@ -31,6 +33,9 @@ const Destination = () => {
       <Footer/>
 
       <FullPhoto selectedPhoto={selectedPhoto} setSelectedPhoto={setSelectedPhoto}/>
+
+      <PageTransitionOpen direction="home" />
+      <PageTransitionClose from="home" />
     </div>
   )
 }
