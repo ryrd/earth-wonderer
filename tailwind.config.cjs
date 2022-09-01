@@ -24,6 +24,7 @@ module.exports = {
       'anton' : ['Anton'],
       'oswald' : ['Oswald'],
       'gilda' : ['Gilda Display'],
+      'kaushan' : ['Kaushan Script'],
     },
     extend: {
       "headwind.runOnSave": false

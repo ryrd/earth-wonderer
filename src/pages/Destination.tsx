@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useState, useEffect, useContext } from 'react'
+import { useParams } from 'react-router-dom'
 import DetailHeader from '../components/sections/DetailHeader';
 import Footer from '../components/sections/Footer';
 import Video from '../components/sections/Video';
@@ -10,10 +10,13 @@ import AboutPlace from '../components/sections/AboutPlace';
 import FullPhoto from '../components/sections/FullPhoto';
 import PageTransitionClose from '../components/parts/PageTransitionClose';
 import PageTransitionOpen from '../components/parts/PageTransitionOpen';
+import context from '../Context';
 
 const Destination = () => {
   const {id} = useParams();
   const data = DATA.find(data => data.id === id) || 'not found';
+
+  const {darkMode} = useContext(context);
 
   const [selectedPhoto, setSelectedPhoto] = useState<string|null>(null);
 
@@ -24,7 +27,7 @@ const Destination = () => {
   }, []);
   
   return (
-    <div className='overflow-x-hidden bg-offwhite dark:bg-dark'>
+    <div className={`overflow-x-hidden ${darkMode ? 'bg-night' : 'bg-light'}`}>
       <Toggle/>
       <DetailHeader name={data.name} img={data.mainPhoto} location={data.location}/>
       <AboutPlace desc={data.desc} mapLink={data.mapLink} location={data.location}/>

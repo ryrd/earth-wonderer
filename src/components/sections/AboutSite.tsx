@@ -1,7 +1,9 @@
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
 import {motion, useScroll,useSpring, useTransform} from 'framer-motion'
-
 import HomeHeading from '../parts/HomeHeading'
+import context from '../../Context';
+import about1 from '../../assets/about/about1.webp';
+import about2 from '../../assets/about/about2.webp';
 
 const About = () => {
   const aboutImgsRef = useRef<HTMLDivElement>(null);
@@ -14,7 +16,7 @@ const About = () => {
   const imgRotateTwoValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [0, -10])
 
   return (
-    <div className='relative h-auto flex justify-center md:justify-start items-center flex-col portrait:pb-[8vh] landscape:pb-[14vh] portrait:pt-8 landscape:pt-[6%] bg-offwhite dark:bg-dark'
+    <div className='relative h-auto flex justify-center md:justify-start items-center flex-col portrait:pb-[8vh] landscape:pb-[14vh] portrait:pt-8 landscape:pt-[6%]'
          ref={aboutImgsRef}>
       <HomeHeading text='about'/>
       <p className='w-[70vw] md:w-1/2 font-oswald font-light md:text-[2.3vw] text-center mt-8 md:mt-10 z-10 dark:text-white dark:font-extralight'>
@@ -25,9 +27,11 @@ const About = () => {
         but beautiful location around the world.
       </p>
 
-      <motion.img src="https://source.unsplash.com/d4pCGPsFz8A" className='absolute -right-[8%] md:right-[12%] top-[45%] md:top-[35%] w-28 md:w-[14vw] z-0' 
+      <div className={`absolute top-0 h-[120px] w-full bg-gradient-to-b from-offwhite dark:from-dark to-transparent`}></div>
+
+      <motion.img src={about2} className='absolute -right-[8%] md:right-[12%] top-[45%] md:top-[35%] w-28 md:w-[16vw] z-0' 
                   style={{y: imgParallaxValue, rotate: imgRotateValue}}/>
-      <motion.img src="https://source.unsplash.com/uftqFbfWGFY" className='absolute -left-[2%] md:left-[15%] bottom-[0%] md:bottom-[2%] w-24 md:w-[12vw] z-0' 
+      <motion.img src={about1} className='absolute -left-[2%] md:left-[15%] bottom-[0%] md:bottom-[2%] w-24 md:w-[14vw] z-0' 
                   style={{y: imgParallaxTwoValue, rotate: imgRotateTwoValue}}/>
     </div>
   )

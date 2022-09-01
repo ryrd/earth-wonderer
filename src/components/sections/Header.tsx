@@ -68,9 +68,12 @@ const Header = () => {
   const [mountainTwoHorizontalValue, setMountainTwoHorizontalValue] = useState(0);
 
   // ------------vertical speed variable-----------
+  let personSpeed;
+  if(window.innerHeight > window.innerWidth) personSpeed = -90
+  else personSpeed = -130
   const {scrollYProgress} = useScroll({ target: parallaxContainerRef, offset: ["end end", "end start"] });
   const smoothSettings = {stiffness: 150, damping: 30, restDelta: 0.01};
-  const personVerticalValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [0, -130])
+  const personVerticalValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [0, personSpeed])
   const mountainOneVerticalValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [0, -65])
   const mountainTwoVerticalValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [0, -50])
   
@@ -155,7 +158,7 @@ const Header = () => {
       </motion.div>
 
       <motion.picture className='absolute -left-[95vw] -bottom-[25vw] w-[280vw]
-                                          md:portrait:-left-[6vw] md:portrait:-bottom-[0vh] md:portrait:w-[110vw]
+                                          md:portrait:-left-[6vw] md:portrait:-bottom-[5vh] md:portrait:w-[110vw]
                                           sm:-left-[1vw] sm:-bottom-[17vh] sm:w-screen
                                           2xl:-left-[1vw] 2xl:-bottom-[17vh] 2xl:w-screen
                                   transition duration-300 ease-out md:transition-none'
