@@ -6,6 +6,7 @@ import PageTransitionOpen from '../components/parts/PageTransitionOpen'
 import PageTransitionClose from '../components/parts/PageTransitionClose'
 import {useContext} from 'react'
 import context from '../Context';
+import Popup from '../components/parts/Popup'
 
 const Home = () => {
   const {darkMode} = useContext(context);
@@ -16,6 +17,8 @@ const Home = () => {
         <AboutSite/>
         <Destinations/>
         <Footer/>
+
+        <Popup/>
 
         <PageTransitionOpen direction="detail" />
         <PageTransitionClose from="detail" />
