@@ -22,7 +22,8 @@ const AboutPlace = ({desc, mapLink, location}: aboutPlaceProps) => {
       <div className='portrait:h-auto landscape:h-[60vh] flex portrait:flex-col font-oswald font-light z-10'>
         <div className='h-full landscape:flex-1 flex justify-center items-center portrait:my-6 my-4'>
           <p className='w-[80%] text-[3.5vw] sm:text-[1.5vw] landscape:ml-[10%] dark:text-white
-                        first-letter:text-[10vw] sm:first-letter:text-[4vw] first-letter:leading-none first-letter:font-kaushan first-letter:mr-[2vw] sm:first-letter:mr-[1vw] first-letter:float-left'>
+                        first-letter:text-[10vw] sm:first-letter:text-[4.4vw] first-letter:leading-none 
+                        first-letter:font-kaushan first-letter:mr-[2vw] sm:first-letter:mr-[1vw] first-letter:float-left'>
             {desc}
           </p>
         </div>

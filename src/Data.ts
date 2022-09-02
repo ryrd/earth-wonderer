@@ -90,7 +90,7 @@ const DATA: data[] = [
         location : 'Atlantic Ocean',
         video : '6VQrr6ahkgM',
         videoOwner : 'JoshStrauss',
-        desc : 'Maldives is an archipelagic state located in Southern Asia, situated in the Indian Ocean. It lies southwest of Sri Lanka and India, about 750 kilometres from the Asian continent\'s mainland. The chain of 26 atolls stretches from Ihavandhippolhu Atoll in the north to Addu Atoll in the south. Maldives is famous for a number of reasons, including its vibrant culture, pristine beaches, sprawling greenery, and fascinating landmarks.',
+        desc : 'Madeira Island, which are part of Portugal, are an archipelago of small islands located in the Atlantic Ocean about 350 miles from Morocco. With incredible mountains that rises above the clouds, natural pools carved out of lava rocks, gorgeous cliffs overlooking the ocean, and charming towns.',
         mapLink : '!1m18!1m12!1m3!1d2977994.1251180214!2d-18.80528583182342!3d31.56432785189477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc5fe9a0f8f92eef%3A0xc77e56774ba5e6f!2sMadeira%2C%20Portugal!5e1!3m2!1sen!2sid!4v1661568640966!5m2!1sen!2sid',
         mainPhoto : 'd4pCGPsFz8A',
         photos : [

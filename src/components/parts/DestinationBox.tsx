@@ -17,7 +17,7 @@ const DestinationBox = ({id, photo, name, longText}: destinationBoxData) => {
     const imgParallaxValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [0, 100]);
 
     return (
-        <div className='relative portrait:h-[28vh] landscape:h-[90vh] overflow-hidden flex items-end'
+        <div className='relative min-h-[100px] portrait:h-[28vh] landscape:h-[90vh] overflow-hidden flex items-end'
              ref={imgRef}>
             <motion.img src={`https://source.unsplash.com/${photo}`} 
                         className='w-[100%] portrait:h-[180%] landscape:h-[120%] object-cover'
