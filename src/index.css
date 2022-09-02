@@ -34,12 +34,6 @@ body{
   animation: try 1.4s infinite; 
 }
 
-.about-img-one{  
-  background: url("/paint.png"), url("https://source.unsplash.com/uftqFbfWGFY");
-  background-position: center;
-  background-blend-mode: screen;
-}
-
 @keyframes try {
   0%, 100% {
     transform: translateY(-20%);
