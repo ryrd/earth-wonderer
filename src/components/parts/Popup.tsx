@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import {useState, useRef, Dispatch, SetStateAction} from 'react';
+import Youtube from './Youtube';
 
 export const Svg = () => {
   return (
@@ -62,10 +63,19 @@ const Slide = ({setpopup}: {setpopup: Dispatch<SetStateAction<{ show: boolean; t
   )
 }
 
-const Vid = ({link}: {link?: string}) => {
+const Vid = ({link = 'bpADC14YIM0', setpopup}: {link?: string, setpopup: Dispatch<SetStateAction<{ show: boolean; type: "" | "click" | "input"; }>>}) => {
   return (
     <div className='fixed z-50 top-0 left-0 w-screen h-screen bg-dark text-offwhite flex flex-col justify-center items-center gap-28 font-oswald font-thin'>
-      Vid
+      <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-offwhite w-4 h-4 rounded-full animate-ping z-0'/>
+      <div className='w-[60vw] aspect-video max-h-full max-w-full z-10'>
+        <Youtube link={link}/>
+      </div>
+
+      <button className='absolute top-[5vh] portrait:left-[3vw] landscape:left-[5vw] w-4'
+              onClick={() => setpopup({show: false, type: ''})}>
+        <div className='h-[2px] w-[80%] bg-white bg-opacity-60 rotate-45'>&nbsp;</div>
+        <div className='h-[2px] w-[80%] bg-white bg-opacity-60 -rotate-45 -translate-y-[100%]'>&nbsp;</div>
+      </button>
     </div>
   )
 }
@@ -75,9 +85,9 @@ const Popup = ({type, setpopup}: {type: string, setpopup: Dispatch<SetStateActio
     <Slide setpopup={setpopup}/>
   )
   else if (type === 'input') return (
-    <Vid />
+    <Vid setpopup={setpopup} link='t57DPnH06V0'/>
   )
-  else return <Vid/>
+  else return <Vid setpopup={setpopup}/>
 }
 
 export default Popup
