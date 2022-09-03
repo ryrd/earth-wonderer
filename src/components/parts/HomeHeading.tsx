@@ -1,6 +1,10 @@
 import { motion } from "framer-motion"
 
-const HomeHeading = ({text}: {text:string}) => {
+interface homeHeadingProps {
+  text: string,
+  type: 'click' | 'input'
+}
+const HomeHeading = ({text, type}: homeHeadingProps) => {
   return (
   <div className='relative flex items-center justify-center font-kaushan uppercase text-center z-10'>
       <button className="w-6 h-6 bg-dark dark:bg-white text-white dark:text-dark rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" 

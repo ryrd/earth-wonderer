@@ -34,6 +34,31 @@ body{
   animation: try 1.4s infinite; 
 }
 
+.inputs{
+  -webkit-appearance: none;
+  height: 12px;
+  background: #c4c4c4;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.inputs::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  background: #595959;
+}
+
+.slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;  
+  border-radius: 6px;
+  background: #595959;
+}
+
 @keyframes try {
   0%, 100% {
     transform: translateY(-20%);

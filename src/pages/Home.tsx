@@ -18,8 +18,7 @@ const Home = () => {
         <Destinations/>
         <Footer/>
 
-        <Popup/>
-
+        <Popup/> 
         <PageTransitionOpen direction="detail" />
         <PageTransitionClose from="detail" />
     </div>
