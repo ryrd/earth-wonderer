@@ -3,7 +3,7 @@ import {useState, useRef, Dispatch, SetStateAction, useEffect} from 'react';
 import Youtube from './Youtube';
 
 interface popupProps {
-  popup: {show: boolean, type: "" | "click" | "input", input?: string}, 
+  popup: {show: boolean, type: "" | "click" | "input", input: string}, 
   setpopup: Dispatch<SetStateAction<{ show: boolean, type: "" | "click" | "input", input: string }>>,
 }
 
@@ -31,10 +31,11 @@ const Slide = ({popup, setpopup}: popupProps) => {
     <div className='fixed z-50 top-0 left-0 w-screen h-screen bg-dark text-offwhite flex flex-col justify-center items-center gap-28 font-oswald font-thin'>
       <div className='flex flex-col items-center'>
         <label className='mb-4' htmlFor="l">laugh</label>
-        <div className='flex'>
+        <div className='flex relative'>
           <div className='bg-[#c4c4c4] h-[12px] w-[5vw]'></div>
           <input ref={lRef} type="range" name="l" id="l" className='inputs w-[75vw]'
                  onChange={e => {
+                  console.log(laugh);
                    setLaugh(parseInt(e.target.value));
                    setEmpathy(100-parseInt(e.target.value));
                    eRef.current.value = empathy;
@@ -64,7 +65,7 @@ const Slide = ({popup, setpopup}: popupProps) => {
       </div>
 
       <button className='absolute top-[5vh] portrait:left-[3vw] landscape:left-[5vw] w-4'
-              onClick={() => setpopup({show: false, type: '', input: 'LIFE?'})}>
+              onClick={() => setpopup({...popup, show: false, type: ''})}>
         <div className='h-[2px] w-[80%] bg-white bg-opacity-60 rotate-45'>&nbsp;</div>
         <div className='h-[2px] w-[80%] bg-white bg-opacity-60 -rotate-45 -translate-y-[100%]'>&nbsp;</div>
       </button>
@@ -81,7 +82,7 @@ const Vid = ({link, popup, setpopup}: {link: string} & popupProps) => {
       </div>
 
       <button className='absolute top-[5vh] portrait:left-[3vw] landscape:left-[5vw] w-4'
-              onClick={() => setpopup({show: false, type: '', input: 'LIFE?'})}>
+              onClick={() => setpopup({...popup, show: false, type: ''})}>
         <div className='h-[2px] w-[80%] bg-white bg-opacity-60 rotate-45'>&nbsp;</div>
         <div className='h-[2px] w-[80%] bg-white bg-opacity-60 -rotate-45 -translate-y-[100%]'>&nbsp;</div>
       </button>
@@ -93,7 +94,7 @@ const Popup = ({popup, setpopup}: popupProps) => {
   if(popup.type === 'click') return <Slide popup={popup} setpopup={setpopup}/>
   else if (popup.type === 'input' && popup.input === 'LIFE?')return <Vid popup={popup} setpopup={setpopup} link='ZMzZqgzQqH8'/>
   else if (popup.type === 'input' && popup.input === 'FEELING') return <Vid popup={popup} setpopup={setpopup} link='bpADC14YIM0'/>
-  else return <Vid popup={popup} setpopup={setpopup} link='t57DPnH06V0'/>
+  else return;
 }
 
 export default Popup
