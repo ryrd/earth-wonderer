@@ -25,7 +25,7 @@ const About = ({popup, setpopup} : popupProps) => {
       <HomeHeading text='&nbsp;&nbsp;about&nbsp;&nbsp;&nbsp;' type='click' popup={popup} setpopup={setpopup} />
       <p className='w-[70vw] md:w-1/2 font-oswald font-light md:text-[2.3vw] text-center mt-8 md:mt-10 z-10 dark:text-white dark:font-extralight'>
         <span className='font-oswald uppercase font-bold text-sm md:text-[2vw]'>Earth Wonderer</span> is a dummy website created by 
-        <a href='https://ryrd.github.io' target='_blank'><span className='text-blue-900 font-gilda underline ml-1 md:ml-2'>ryrd</span>.</a> 
+        <a href='https://ryrd.github.io' target='_blank'><span className='text-blue-900 font-gilda underline ml-1 md:ml-2 cursor-point'>ryrd</span>.</a> 
         &nbsp; this site is showing 2 cities, Banjarmasin and Kotabaru 
         from south Borneo Indonesia. and few underrate 
         but beautiful location around the world.

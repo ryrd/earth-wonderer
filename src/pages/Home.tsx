@@ -10,7 +10,7 @@ import Popup from '../components/parts/Popup'
 
 const Home = () => {
   const {darkMode} = useContext(context);
-  const [popup, setPopup] = useState<{show: boolean, type: 'click'|'input'|'', input: string}>({show: false, type: '', input: ' '});
+  const [popup, setPopup] = useState<{show: boolean, type: 'click'|'input'|'', input: string}>({show: false, type: '', input: ''});
 
   return (
     <div className={darkMode ? 'bg-night' : 'bg-light'}>

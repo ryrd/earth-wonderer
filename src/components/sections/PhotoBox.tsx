@@ -17,7 +17,7 @@ const PhotoBox = ({photo, setSelectedPhoto}: photoBoxProps) => {
     const imgParallaxValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [yParallax, -10]);
 
     return (
-        <div className='relative mb-4 overflow-hidden cursor-pointer flex justify-center shadow-xl' 
+        <div className='relative mb-4 overflow-hidden cursor-point flex justify-center shadow-xl' 
             ref={imgRef}
             onClick={() => setSelectedPhoto(photo)}
             >

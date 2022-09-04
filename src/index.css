@@ -9,6 +9,7 @@ html{
 body{
   @apply selection:bg-[#090909] selection:text-[#d4d4d4] dark:selection:bg-[#d4d4d4] dark:selection:text-[#090909];
   overflow-x: hidden;
+  cursor: url('/cursor.svg'), auto;
 }
 
 .bg-light{

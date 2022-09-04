@@ -5,7 +5,7 @@ const Map = ({link} : {link: string}) => {
             height='100%'
             style={{border:0}} 
             loading="lazy"
-            className="z-10">
+            className="z-10 cursor-point">
     </iframe>
   )
 }

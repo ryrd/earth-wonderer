@@ -22,7 +22,7 @@ const FullPhoto = ({selectedPhoto, setSelectedPhoto}: fullPhotoProps) => {
                   animate={selectedPhoto !== null ? {scale: 1, transition : tranProp} : {scale: .45, transition : tranProp}}
                   />
       
-      <button className='absolute top-[5vh] portrait:left-[3vw] landscape:left-[5vw] w-10'>
+      <button className='absolute top-[5vh] portrait:left-[3vw] landscape:left-[5vw] w-10 cursor-point'>
         <div className='h-[2px] w-[80%] bg-white rotate-45'>&nbsp;</div>
         <div className='h-[2px] w-[80%] bg-white -rotate-45 -translate-y-[100%]'>&nbsp;</div>
       </button>

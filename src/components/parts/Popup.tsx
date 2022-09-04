@@ -92,9 +92,9 @@ const Vid = ({link, popup, setpopup}: {link: string} & popupProps) => {
 
 const Popup = ({popup, setpopup}: popupProps) => {
   if(popup.type === 'click') return <Slide popup={popup} setpopup={setpopup}/>
-  else if (popup.type === 'input' && popup.input === 'LIFE?')return <Vid popup={popup} setpopup={setpopup} link='ZMzZqgzQqH8'/>
+  else if (popup.type === 'input' && popup.input === 'LIFE?') return <Vid popup={popup} setpopup={setpopup} link='ZMzZqgzQqH8'/>
   else if (popup.type === 'input' && popup.input === 'FEELING') return <Vid popup={popup} setpopup={setpopup} link='bpADC14YIM0'/>
-  else return;
+  else return <></>;
 }
 
 export default Popup

@@ -27,7 +27,10 @@ module.exports = {
       'kaushan' : ['Kaushan Script'],
     },
     extend: {
-      "headwind.runOnSave": false
+      "headwind.runOnSave": false,
+      cursor: {
+        'point': 'url(/point.svg), pointer',
+      }
     },
   },
   plugins: [],
