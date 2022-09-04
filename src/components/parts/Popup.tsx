@@ -1,6 +1,11 @@
 import { motion } from 'framer-motion';
-import {useState, useRef, Dispatch, SetStateAction} from 'react';
+import {useState, useRef, Dispatch, SetStateAction, useEffect} from 'react';
 import Youtube from './Youtube';
+
+interface popupProps {
+  popup: {show: boolean, type: "" | "click" | "input", input?: string}, 
+  setpopup: Dispatch<SetStateAction<{ show: boolean, type: "" | "click" | "input", input: string }>>,
+}
 
 export const Svg = () => {
   return (
@@ -11,12 +16,16 @@ export const Svg = () => {
   )
 }
 
-const Slide = ({setpopup}: {setpopup: Dispatch<SetStateAction<{ show: boolean; type: "" | "click" | "input"; }>>}) => {
+const Slide = ({popup, setpopup}: popupProps) => {
   const [full, setFull] = useState(false);
   const [laugh, setLaugh] = useState(0);
   const [empathy, setEmpathy] = useState(0);
   const lRef = useRef<HTMLInputElement|any>(null);
   const eRef = useRef<HTMLInputElement|any>(null);
+
+  useEffect(() => {
+    lRef.current.value = 47
+  }, [])
 
   return (
     <div className='fixed z-50 top-0 left-0 w-screen h-screen bg-dark text-offwhite flex flex-col justify-center items-center gap-28 font-oswald font-thin'>
@@ -29,7 +38,7 @@ const Slide = ({setpopup}: {setpopup: Dispatch<SetStateAction<{ show: boolean; t
                    setLaugh(parseInt(e.target.value));
                    setEmpathy(100-parseInt(e.target.value));
                    eRef.current.value = empathy;
-                   if(laugh > 98) setFull(true)
+                   if(laugh > 95) setFull(true)
                    else setFull(false)
                  }}
           />
@@ -55,7 +64,7 @@ const Slide = ({setpopup}: {setpopup: Dispatch<SetStateAction<{ show: boolean; t
       </div>
 
       <button className='absolute top-[5vh] portrait:left-[3vw] landscape:left-[5vw] w-4'
-              onClick={() => setpopup({show: false, type: ''})}>
+              onClick={() => setpopup({show: false, type: '', input: 'LIFE?'})}>
         <div className='h-[2px] w-[80%] bg-white bg-opacity-60 rotate-45'>&nbsp;</div>
         <div className='h-[2px] w-[80%] bg-white bg-opacity-60 -rotate-45 -translate-y-[100%]'>&nbsp;</div>
       </button>
@@ -63,7 +72,7 @@ const Slide = ({setpopup}: {setpopup: Dispatch<SetStateAction<{ show: boolean; t
   )
 }
 
-const Vid = ({link = 'bpADC14YIM0', setpopup}: {link?: string, setpopup: Dispatch<SetStateAction<{ show: boolean; type: "" | "click" | "input"; }>>}) => {
+const Vid = ({link, popup, setpopup}: {link: string} & popupProps) => {
   return (
     <div className='fixed z-50 top-0 left-0 w-screen h-screen bg-dark text-offwhite flex flex-col justify-center items-center gap-28 font-oswald font-thin'>
       <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-offwhite w-4 h-4 rounded-full animate-ping z-0'/>
@@ -72,7 +81,7 @@ const Vid = ({link = 'bpADC14YIM0', setpopup}: {link?: string, setpopup: Dispatc
       </div>
 
       <button className='absolute top-[5vh] portrait:left-[3vw] landscape:left-[5vw] w-4'
-              onClick={() => setpopup({show: false, type: ''})}>
+              onClick={() => setpopup({show: false, type: '', input: 'LIFE?'})}>
         <div className='h-[2px] w-[80%] bg-white bg-opacity-60 rotate-45'>&nbsp;</div>
         <div className='h-[2px] w-[80%] bg-white bg-opacity-60 -rotate-45 -translate-y-[100%]'>&nbsp;</div>
       </button>
@@ -80,14 +89,11 @@ const Vid = ({link = 'bpADC14YIM0', setpopup}: {link?: string, setpopup: Dispatc
   )
 }
 
-const Popup = ({type, setpopup}: {type: string, setpopup: Dispatch<SetStateAction<{ show: boolean; type: "" | "click" | "input"; }>>}) => {
-  if(type === 'click') return (
-    <Slide setpopup={setpopup}/>
-  )
-  else if (type === 'input') return (
-    <Vid setpopup={setpopup} link='t57DPnH06V0'/>
-  )
-  else return <Vid setpopup={setpopup}/>
+const Popup = ({popup, setpopup}: popupProps) => {
+  if(popup.type === 'click') return <Slide popup={popup} setpopup={setpopup}/>
+  else if (popup.type === 'input' && popup.input === 'LIFE?')return <Vid popup={popup} setpopup={setpopup} link='ZMzZqgzQqH8'/>
+  else if (popup.type === 'input' && popup.input === 'FEELING') return <Vid popup={popup} setpopup={setpopup} link='bpADC14YIM0'/>
+  else return <Vid popup={popup} setpopup={setpopup} link='t57DPnH06V0'/>
 }
 
 export default Popup

@@ -10,16 +10,16 @@ import Popup from '../components/parts/Popup'
 
 const Home = () => {
   const {darkMode} = useContext(context);
-  const [popup, setPopup] = useState<{show: boolean, type: 'click'|'input'|''}>({show: false, type: ''});
+  const [popup, setPopup] = useState<{show: boolean, type: 'click'|'input'|'', input: string}>({show: false, type: '', input: ''});
 
   return (
     <div className={darkMode ? 'bg-night' : 'bg-light'}>
         <Header/>
-        <AboutSite setpopup={setPopup}/>
-        <Destinations setpopup={setPopup}/>
+        <AboutSite setpopup={setPopup} popup={popup}/>
+        <Destinations setpopup={setPopup} popup={popup}/>
         <Footer/>
 
-        {popup.show && <Popup type={popup.type} setpopup={setPopup}/>}
+        {popup.show && <Popup popup={popup} setpopup={setPopup}/>}
         <PageTransitionOpen direction="detail" />
         <PageTransitionClose from="detail" />
     </div>
