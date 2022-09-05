@@ -73,6 +73,21 @@ const Slide = ({popup, setpopup}: popupProps) => {
   )
 }
 
+const Img = ({popup, setpopup}: popupProps) => {
+  return (
+    <div className='fixed z-50 top-0 left-0 w-screen h-screen bg-dark text-offwhite flex flex-col justify-center items-center gap-28 font-oswald font-thin'>
+      <div className='w-[40vw] aspect-video max-h-full max-w-full z-10'>
+        <img src='https://i.postimg.cc/fb4JTWCv/IMG-20220312-184913.jpg'/>
+      </div>
+
+      <button className='absolute top-[5vh] portrait:left-[3vw] landscape:left-[5vw] w-4'
+              onClick={() => setpopup({...popup, show: false, type: ''})}>
+        <div className='h-[2px] w-[80%] bg-white bg-opacity-60 rotate-45'>&nbsp;</div>
+        <div className='h-[2px] w-[80%] bg-white bg-opacity-60 -rotate-45 -translate-y-[100%]'>&nbsp;</div>
+      </button>
+    </div>
+  )
+}
 const Vid = ({link, popup, setpopup}: {link: string} & popupProps) => {
   return (
     <div className='fixed z-50 top-0 left-0 w-screen h-screen bg-dark text-offwhite flex flex-col justify-center items-center gap-28 font-oswald font-thin'>
@@ -93,7 +108,9 @@ const Vid = ({link, popup, setpopup}: {link: string} & popupProps) => {
 const Popup = ({popup, setpopup}: popupProps) => {
   if(popup.type === 'click') return <Slide popup={popup} setpopup={setpopup}/>
   else if (popup.type === 'input' && popup.input === 'LIFE?') return <Vid popup={popup} setpopup={setpopup} link='ZMzZqgzQqH8'/>
-  else if (popup.type === 'input' && popup.input === 'FEELING') return <Vid popup={popup} setpopup={setpopup} link='bpADC14YIM0'/>
+  else if (popup.type === 'input' && popup.input === 'FEELING') return <Vid popup={popup} setpopup={setpopup} link='kdZSGmrslpw'/>
+  else if (popup.type === 'input' && popup.input === 'NIGHT') return <Vid popup={popup} setpopup={setpopup} link='eRi1AxSIgHQ'/>
+  else if (popup.type === 'input' && popup.input === 'IHATEMYFACE') return <Img popup={popup} setpopup={setpopup}/>
   else return <></>;
 }
 
