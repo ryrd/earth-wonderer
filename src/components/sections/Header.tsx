@@ -4,13 +4,21 @@ import Toggle from '../parts/Toggle';
 import context from '../../Context';
 import arrow from '../../assets/arrow.svg';
 // ---------import day assets-----------
+import bgDay from '../../assets/header/day/bg-day.mp4'
 import personDayPng from '../../assets/header/day/person-day.png'
+import personDayWebp from '../../assets/header/day/person-day.webp'
 import mountainOnePng from '../../assets/header/day/mountain-1.png'
+import mountainOneWebp from '../../assets/header/day/mountain-1.webp'
 import mountainTwoPng from '../../assets/header/day/mountain-2.png'
+import mountainTwoWebp from '../../assets/header/day/mountain-2.webp'
 // ---------import night assets-----------
+import bgNight from '../../assets/header/night/bg-night.mp4'
 import personNightPng from '../../assets/header/night/person-night.png'
+import personNightWebp from '../../assets/header/night/person-night.webp'
 import mountainOneNightPng from '../../assets/header/night/mountain-1-night.png'
+import mountainOneNightWebp from '../../assets/header/night/mountain-1-night.webp'
 import mountainTwoNightPng from '../../assets/header/night/mountain-2-night.png'
+import mountainTwoNightWebp from '../../assets/header/night/mountain-2-night.webp'
 import { Svg } from '../parts/Popup';
 
 // -------------animation variant---------------
@@ -94,15 +102,14 @@ const Header = () => {
    
     window.addEventListener('scroll', () => {
       window.innerWidth > 500 && setScrollPos();
-      if(window.scrollY > 10) setTitleUp(true)
-      else setTitleUp(false)
+      window.scrollY > 10 ? setTitleUp(true) : setTitleUp(false)
     });
   
     const videoInterval = setInterval(() => {
       if (scrollpos < 3) scrollplay()
       else return
     }, 33.33);
-    if(window.innerWidth < 500) clearInterval(videoInterval);
+    window.innerWidth < 500 && clearInterval(videoInterval);
 
     //-------horizontal parallax-------
     const horizontalParallax = (e: MouseEvent) => {
@@ -112,7 +119,6 @@ const Header = () => {
     }
     window.innerWidth > 500 && window.addEventListener('mousemove', (e: MouseEvent) => horizontalParallax(e));
 
-    console.log(window.innerWidth);
     return () => {
       window.removeEventListener('scroll', () => {
         setScrollPos();
@@ -129,29 +135,31 @@ const Header = () => {
          ref={parallaxContainerRef}>
       <Toggle/>
 
-      <div className='h-full bg-cover'>
-        <video src={darkMode ? '/night/bg-night.mp4' : '/day/bg-day.mp4'} id='vid' className='h-full sm:w-screen object-cover'></video>
+      <span className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 font-oswald font-thin text-dark dark:text-white animate-pulse'>loading...</span>
+
+      <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 h-full w-full bg-cover'>
+        <video src={darkMode ? bgNight : bgDay} id='vid' className='h-full sm:w-screen object-cover'></video>
       </div>
 
       <motion.picture className='absolute -bottom-[2vh] -right-[15vw] w-[150vw] 
                                           sm:-bottom-[10vh] sm:-right-[20vw] sm:w-screen
-                                  transition duration-300 ease-out md:transition-none'
+                                  transition duration-300 ease-out md:transition-none z-20'
                       style={{y: mountainTwoVerticalValue, x: mountainTwoHorizontalValue}}>
-          <source src={darkMode ? '/night/mountain-2-night.webp' : '/day/mountain-2.webp'} type="image/webp"/>
+          <source src={darkMode ? mountainTwoNightWebp : mountainTwoWebp} type="image/webp"/>
           <source src={darkMode ? mountainTwoNightPng : mountainTwoPng} type="image/png"/>
-          <img src={darkMode ? '/night/mountain-2-night.webp' : '/day/mountain-2.webp'} className='w-full'/>
+          <img src={darkMode ? mountainTwoNightWebp : mountainTwoWebp} className='w-full'/>
       </motion.picture>
       
       <motion.picture className='absolute -left-[30vw] -bottom-[10vw] w-[150vw] 
                                           sm:-left-[15vw] sm:-bottom-[13vh] sm:w-screen
-                                  transition duration-300 ease-out md:transition-none'
+                                  transition duration-300 ease-out md:transition-none z-30'
                       style={{y: mountainOneVerticalValue, x: mountainOneHorizontalValue}}>
-          <source src={darkMode ? '/night/mountain-1-night.webp' : '/day/mountain-1.webp'} type="image/webp"/>
+          <source src={darkMode ? mountainOneNightWebp : mountainOneWebp} type="image/webp"/>
           <source src={darkMode ? mountainOneNightPng : mountainOnePng} type="image/png"/>
-          <img src={darkMode ? '/night/mountain-1-night.webp' : '/day/mountain-1.webp'} className='w-full'/>
+          <img src={darkMode ? mountainOneNightWebp : mountainOneWebp} className='w-full'/>
       </motion.picture>
 
-      <motion.div className='absolute top-[15vh] md:top-[13vh] text-white font-anton uppercase text-center left-1/2 -translate-x-1/2 drop-shadow-lg transition duration-700 ease-out'
+      <motion.div className='absolute top-[15vh] md:top-[13vh] text-white font-anton uppercase text-center left-1/2 -translate-x-1/2 drop-shadow-lg transition duration-700 ease-out z-40'
                   variants={titleAnim} initial='initial' animate={titleUp ? {y: '-50%', scale: 1} : 'animate'}>
         <div className='flex items-center justify-center z-10'>
           <div className='h-[2px] portrait:w-[20vw] landscape:w-[10vw] bg-gradient-to-r from-transparent to-offwhite'/>
@@ -174,17 +182,17 @@ const Header = () => {
                                           md:portrait:-left-[6vw] md:portrait:-bottom-[5vh] md:portrait:w-[110vw]
                                           sm:-left-[1vw] sm:-bottom-[17vh] sm:w-screen
                                           2xl:-left-[1vw] 2xl:-bottom-[17vh] 2xl:w-screen
-                                  transition duration-300 ease-out md:transition-none'
+                                  transition duration-300 ease-out md:transition-none z-50'
                       style={{y: personVerticalValue, x: personHorizontalValue}}
                       onClick={showIt}>
-          <source srcSet={darkMode ? '/night/person-night.webp' : '/day/person-day.webp'} type="image/webp"/>
+          <source srcSet={darkMode ? personNightWebp : personDayWebp} type="image/webp"/>
           <source srcSet={darkMode ? personNightPng : personDayPng} type="image/png"/>
-          <img src={darkMode ? '/night/person-night.webp' : '/day/person-day.webp'} className='w-full' />
+          <img src={darkMode ? personNightWebp : personDayWebp} className='w-full' />
       </motion.picture>
 
-      <div className={`absolute bottom-0 h-[80px] md:h-[100px] w-full ${darkMode ? 'header-gradient-dark' : 'header-gradient'}`}></div>
+      <div className={`absolute bottom-0 h-[80px] md:h-[100px] z-[60] w-full ${darkMode ? 'header-gradient-dark' : 'header-gradient'}`}></div>
 
-      <motion.div className='absolute bottom-[3vh] md:bottom-[5vh] left-1/2 -translate-x-1/2 font-oswald text-white font-light flex flex-col items-center text-sm md:text-base'
+      <motion.div className='absolute bottom-[3vh] md:bottom-[5vh] left-1/2 -translate-x-1/2 z-[70] font-oswald text-white font-light flex flex-col items-center text-sm md:text-base'
                   variants={titleAnim} initial='initial' animate='animate'>
         <motion.span variants={scroll} className='tracking-wide'>scroll down to explore</motion.span>
         <motion.img variants={scroll} src={arrow} alt="scroll down" className='w-6 scroll-down' />
