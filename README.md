@@ -1,6 +1,8 @@
 dummy project - travel destination site
 
----still on making---
+https://earth-wonderer-ryrd.netlify.app
+
+---93% complete---
 
 create with:
 - react + typescript

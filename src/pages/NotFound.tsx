@@ -10,7 +10,6 @@ const NotFound = () => {
       <button onClick={() => navigate(-1)} className='bg-white text-dark p-2 font-oswald tracking-wide flex flex-row'>
         <img src={arrowBack} alt="back" className='invert h-[20px] w-auto mr-2 translate-y-1'/> go back
       </button>
-      
     </div>
   )
 }
