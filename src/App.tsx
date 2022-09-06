@@ -11,10 +11,7 @@ function App() {
   return (
     <ContextProvider>
         <AnimatePresence mode='wait'>
-          <Routes 
-            location={location} 
-            key={location.pathname}
-          >
+          <Routes location={location} key={location.pathname}>
             <Route path='/' element={<Home/>}/>
             <Route path='/destination/:id' element={<Destination/>}/>
             <Route path='*' element={<NotFound/>}/>

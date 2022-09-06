@@ -33,9 +33,9 @@ const About = ({popup, setpopup} : popupProps) => {
 
       <div className={`absolute top-0 h-[120px] w-full bg-gradient-to-b from-offwhite dark:from-dark to-transparent`}></div>
       
-      <motion.img src={about2} className='absolute -right-[8%] md:right-[12%] top-[45%] md:top-[35%] w-28 md:w-[16vw] z-0' 
+      <motion.img src={about2} className='absolute -right-[8%] md:right-[12%] top-[45%] md:top-[35%] w-28 md:w-[16vw] z-0 about-shadow' 
                   style={{y: imgParallaxValue, rotate: imgRotateValue}}/>
-      <motion.img src={about1} className='absolute -left-[5%] md:left-[13%] bottom-[0%] md:bottom-[2%] w-24 md:w-[14vw] z-0' 
+      <motion.img src={about1} className='absolute -left-[5%] md:left-[13%] bottom-[0%] md:bottom-[2%] w-24 md:w-[14vw] z-0 about-shadow' 
                   style={{y: imgParallaxTwoValue, rotate: imgRotateTwoValue}}/>
     </div>
   )

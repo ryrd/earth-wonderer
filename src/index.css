@@ -35,6 +35,10 @@ body{
   animation: try 1.4s infinite; 
 }
 
+.about-shadow{
+  filter: drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.5));
+}
+
 .inputs{
   -webkit-appearance: none;
   height: 12px;
