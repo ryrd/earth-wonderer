@@ -77,7 +77,7 @@ const Img = ({popup, setpopup}: popupProps) => {
   useEffect(() => {
     setTimeout(() => {
       setpopup({...popup, show: false, type: ''})
-    }, 2000);
+    }, 5000);
   }, [])
   
   return (

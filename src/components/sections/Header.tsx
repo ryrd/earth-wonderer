@@ -58,7 +58,7 @@ const Header = () => {
   const showIt = () => {
     if(earthRef.current.innerText === 'WORLD') {
       setItShowed(true);
-      setTimeout(() => setItShowed(false),7000);
+      setTimeout(() => setItShowed(false),3500);
     }
   }
   
