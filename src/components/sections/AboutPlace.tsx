@@ -33,7 +33,7 @@ const AboutPlace = ({desc, mapLink, location}: aboutPlaceProps) => {
             <div className='flex text-[3vw] sm:text-[1.2vw] w-[85%] md:w-[80%] dark:text-white'>
               <img src={!darkMode ? locationLight : locationDark} alt="location logo" className='mr-2 w-[6%] md:w-[6%]'/>{location}
             </div>
-            <div className=' mt-2 w-auto sm:w-[80%] portrait:h-[17vh] aspect-[4/3] relative overflow-hidden'>
+            <div className='mt-2 w-[100%] sm:w-[80%] portrait:h-[17vh] aspect-[4/3] relative overflow-hidden'>
               <Map link={mapLink}/>
             </div>
           </div>

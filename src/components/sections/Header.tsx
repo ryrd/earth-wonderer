@@ -1,10 +1,11 @@
 import { useEffect, useState, useRef, useContext } from 'react';
-import {motion, useScroll, useSpring, useTransform, Variants} from 'framer-motion';
+import {motion, useScroll, useSpring, useTransform} from 'framer-motion';
 import Toggle from '../parts/Toggle';
 import context from '../../Context';
 import arrow from '../../assets/arrow.svg';
 // ---------import day assets-----------
 import bgDay from '../../assets/header/day/bg-day.mp4'
+import bgDayPic from '../../assets/header/day/bg-picture.jpg'
 import personDayPng from '../../assets/header/day/person-day.png'
 import personDayWebp from '../../assets/header/day/person-day.webp'
 import mountainOnePng from '../../assets/header/day/mountain-1.png'
@@ -13,6 +14,7 @@ import mountainTwoPng from '../../assets/header/day/mountain-2.png'
 import mountainTwoWebp from '../../assets/header/day/mountain-2.webp'
 // ---------import night assets-----------
 import bgNight from '../../assets/header/night/bg-night.mp4'
+import bgNightPic from '../../assets/header/night/bg-picture-night.jpg'
 import personNightPng from '../../assets/header/night/person-night.png'
 import personNightWebp from '../../assets/header/night/person-night.webp'
 import mountainOneNightPng from '../../assets/header/night/mountain-1-night.png'
@@ -21,43 +23,12 @@ import mountainTwoNightPng from '../../assets/header/night/mountain-2-night.png'
 import mountainTwoNightWebp from '../../assets/header/night/mountain-2-night.webp'
 import { Svg } from '../parts/Popup';
 
-// -------------animation variant---------------
-const titleAnim: Variants = {
-  initial: {
-    filter : 'blur(20px)',
-    opacity : 0,
-    scale: .5,
-    x: '-50%',
-  },
-  animate: {
-    filter : 'blur(0px)',
-    opacity : 1,
-    scale: 1,
-    x: '-50%',
-    transition: {
-      duration: .5,
-      delay: .9,
-      ease: [.21,.8,.19,.98]
-    }
-  }
-}
-
-const scroll: Variants = {
-  initial: {
-    opacity: 0
-  },
-  animate: {
-    opacity: 1,
-    transition: {
-      delay: 1,
-    }
-  },
-}
-
 const Header = () => {
   const {darkMode} = useContext(context);
 
   const [titleUp, setTitleUp] = useState(false);
+
+  const [mobile, setMobile] = useState(false);
 
   // ---------video playback variable----------
   let accelamount = .1;
@@ -123,11 +94,13 @@ const Header = () => {
     }
     window.innerWidth > 500 && window.addEventListener('mousemove', (e: MouseEvent) => horizontalParallax(e));
 
+    //check mobile
+    window.innerWidth < 500 ? setMobile(true) : setMobile(false);
+
     return () => {
       window.removeEventListener('scroll', () => {
         setScrollPos();
-        if(window.scrollY > 10) setTitleUp(true)
-        else setTitleUp(false)
+        window.scrollY > 10 ? setTitleUp(true) : setTitleUp(false);
       });
       window.removeEventListener('mousemove', (e: MouseEvent) => horizontalParallax(e));
       clearInterval(videoInterval);
@@ -142,7 +115,12 @@ const Header = () => {
       <span className='absolute top-1/2 left-[20vw] -translate-x-1/2 -translate-y-1/2 z-0 font-oswald font-thin text-dark dark:text-white animate-pulse'>loading...</span>
 
       <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 h-full w-full bg-cover'>
-        <video src={darkMode ? bgNight : bgDay} id='vid' className='h-full sm:w-screen object-cover'></video>
+        {mobile ? (
+          <img src={darkMode ? bgNightPic : bgDayPic} className='h-full sm:w-screen object-cover' alt="header-bg-picture" />
+        ) : (
+          <video src={darkMode ? bgNight : bgDay} id='vid' className='h-full sm:w-screen object-cover'></video>
+        )
+      }
       </div>
 
       <motion.picture className='absolute -bottom-[2vh] -right-[15vw] w-[150vw] 
@@ -164,13 +142,13 @@ const Header = () => {
       </motion.picture>
 
       <motion.div className='absolute top-[15vh] md:top-[13vh] text-white font-anton uppercase text-center left-1/2 -translate-x-1/2 drop-shadow-lg transition duration-700 ease-out z-40'
-                  variants={titleAnim} initial='initial' animate={titleUp ? {y: '-50%', scale: 1} : 'animate'}>
+                  animate={titleUp ? {y: '-50%', filter: 'blur(15px)', opacity: 0, x: '-50%'} : {y: '0%', filter: 'blur(0px)', opacity: 1, x: '-50%'}}
+                  id='earth-title'>
         <div className='flex items-center justify-center z-10'>
           <div className='h-[2px] portrait:w-[20vw] landscape:w-[10vw] bg-gradient-to-r from-transparent to-offwhite'/>
           <h1 className='text-5xl md:text-[5vw] mx-4 z-10' 
               contentEditable suppressContentEditableWarning={true}
-              ref={earthRef}
-              >
+              ref={earthRef}>
                 earth
           </h1>
           <div className='h-[2px] portrait:w-[20vw] landscape:w-[10vw] bg-gradient-to-l from-transparent to-offwhite'/>
@@ -196,10 +174,9 @@ const Header = () => {
 
       <div className={`absolute bottom-0 h-[80px] md:h-[100px] z-[60] w-full ${darkMode ? 'header-gradient-dark' : 'header-gradient'}`}></div>
 
-      <motion.div className='absolute bottom-[3vh] md:bottom-[5vh] left-1/2 -translate-x-1/2 z-[70] font-oswald text-white font-light flex flex-col items-center text-sm md:text-base'
-                  variants={titleAnim} initial='initial' animate='animate'>
-        <motion.span variants={scroll} className='tracking-wide'>scroll down to explore</motion.span>
-        <motion.img variants={scroll} src={arrow} alt="scroll down" className='w-6 scroll-down' />
+      <motion.div className='absolute bottom-[3vh] md:bottom-[5vh] left-1/2 -translate-x-1/2 z-[70] font-oswald text-white font-light flex flex-col items-center text-sm md:text-base'>
+        <motion.span className='tracking-wide'>scroll down to explore</motion.span>
+        <motion.img src={arrow} alt="scroll down" className='w-6 scroll-down' />
       </motion.div>
     </div>
   )

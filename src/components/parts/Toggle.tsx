@@ -25,7 +25,7 @@ const Toggle = () => {
   return (
     <>
       <motion.button className='bg-black hover:bg-neutral-900 cursor-point bg-opacity-90 w-auto h-12 md:h-16 absolute top-0 right-0 flex justify-center items-center text-white font-oswald font-light tracking-wide text-base md:text-[1.4vw] px-[3vw] md:px-[1.5vw] landscape:lg:py-[3vh] gap-3 z-50'
-                     initial={{y: '-100%'}} animate={{y: '0%', transition: {duration: 1, delay: 1.3, ease: [.1,.79,.31,.99]}}}
+                     initial={{y: '-100%'}} animate={{y: '0%', transition: {duration: 1, delay: .5, ease: [.1,.79,.31,.99]}}}
                      onClick={toggleDark}>
         {!darkMode ? 'dark' : 'light'} mode
         <img src={!darkMode ? moon : sun} alt="dark mode toggle" className='h-5 md:h-[2vw]' />

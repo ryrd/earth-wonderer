@@ -17,12 +17,12 @@ const PhotoBox = ({photo, setSelectedPhoto}: photoBoxProps) => {
     const imgParallaxValue = useTransform(useSpring(scrollYProgress,smoothSettings),[0, 1], [yParallax, -10]);
 
     return (
-        <div className='relative mb-4 overflow-hidden cursor-point flex justify-center shadow-xl' 
+        <div className='relative mb-2 sm:mb-4 overflow-hidden cursor-point flex justify-center shadow-xl' 
             ref={imgRef}
             onClick={() => setSelectedPhoto(photo)}
             >
             <img src="/polaroid.webp" className='absolute top-0 w-full h-full object-fill z-10'/>
-            <motion.img src={`https://source.unsplash.com/${photo}`} className='w-[80%] sm:w-auto object-cover transition duration-500 ease-out' 
+            <motion.img src={`https://source.unsplash.com/${photo}`} className='w-auto sm:w-auto object-cover transition duration-500 ease-out' 
                         style={{y: imgParallaxValue, scale: 1.2}}
                         />
         </div>

@@ -22,20 +22,12 @@
     <div id="preloader"></div>
 
     <script type="module" src="/src/main.tsx"></script>
-
     <script>
-      //preloader
-      paceOptions = {
-          ajax: true,
-          document: true,
-          eventLag: false,
-      };
-
       Pace.on('done', () => {
         document.querySelector('#preloader').style.transform = 'translateY(-110vh)';
         setTimeout(() => {
           document.querySelector('link[href$="/loading-bar.css"]') && document.querySelector('link[href$="/loading-bar.css"]').remove();
-        }, 2000);
+        }, 1500);
       });
     </script>
   </body>
