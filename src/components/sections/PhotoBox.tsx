@@ -8,7 +8,7 @@ interface photoBoxProps {
 
 const PhotoBox = ({photo, setSelectedPhoto}: photoBoxProps) => {
     let yParallax;
-    if(window.innerWidth < window.innerHeight && window.innerWidth < 500) yParallax = -20
+    if(window.innerWidth < window.innerHeight && window.innerWidth < 500) yParallax = -30
     else yParallax = -40
 
     const imgRef = useRef(null);

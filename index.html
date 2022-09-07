@@ -16,19 +16,25 @@
     <title>EARTH WONDERER</title>
   </head>
   <body>
-    <div id="root"></div>
-
     <!-- pre-loader -->
-    <div id="preloader"></div>
+    <div id="preloader">
+      <h1 id="preloader-text">LOADING</h1>
+    </div>
+
+    <div id="root"></div>
+    
 
     <script type="module" src="/src/main.tsx"></script>
     <script>
+      const preloader = document.querySelector('#preloader')
       Pace.on('done', () => {
-        document.querySelector('#preloader').style.transform = 'translateY(-110vh)';
+        preloader.style.transform = 'translateY(-110vh)';
+        preloader.style.position = 'absolute';
         setTimeout(() => {
           document.querySelector('link[href$="/loading-bar.css"]') && document.querySelector('link[href$="/loading-bar.css"]').remove();
         }, 1500);
       });
     </script>
+
   </body>
 </html>

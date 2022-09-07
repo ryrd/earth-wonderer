@@ -24,7 +24,7 @@ const Slide = ({popup, setpopup}: popupProps) => {
   const eRef = useRef<HTMLInputElement|any>(null);
 
   useEffect(() => {
-    lRef.current.value = 47
+    lRef.current.value = 41
   }, [])
 
   return (
@@ -32,10 +32,9 @@ const Slide = ({popup, setpopup}: popupProps) => {
       <div className='flex flex-col items-center'>
         <label className='mb-4' htmlFor="l">laugh</label>
         <div className='flex relative'>
-          <div className='bg-[#c4c4c4] h-[12px] w-[5vw]'></div>
-          <input ref={lRef} type="range" name="l" id="l" className='inputs w-[75vw]'
+          <div className='bg-[#c4c4c4] h-[12px] w-[12vw]'></div>
+          <input ref={lRef} type="range" name="l" id="l" className='inputs w-[68vw]'
                  onChange={e => {
-                  console.log(laugh);
                    setLaugh(parseInt(e.target.value));
                    setEmpathy(100-parseInt(e.target.value));
                    eRef.current.value = empathy;
@@ -108,8 +107,8 @@ const Vid = ({link, popup, setpopup}: {link: string} & popupProps) => {
 const Popup = ({popup, setpopup}: popupProps) => {
   if(popup.type === 'click') return <Slide popup={popup} setpopup={setpopup}/>
   else if (popup.type === 'input' && popup.input === 'LIFE?') return <Vid popup={popup} setpopup={setpopup} link='ZMzZqgzQqH8'/>
-  else if (popup.type === 'input' && popup.input === 'FEELING') return <Vid popup={popup} setpopup={setpopup} link='kdZSGmrslpw'/>
-  else if (popup.type === 'input' && popup.input === 'NIGHT') return <Vid popup={popup} setpopup={setpopup} link='eRi1AxSIgHQ'/>
+  else if (popup.type === 'input' && popup.input === 'TIRED') return <Vid popup={popup} setpopup={setpopup} link='4Faf3vMe6Vw'/>
+  else if (popup.type === 'input' && popup.input === 'FEELING') return <Vid popup={popup} setpopup={setpopup} link='ibhm7HLjim8'/>
   else if (popup.type === 'input' && popup.input === 'IHATEMYFACE') return <Img popup={popup} setpopup={setpopup}/>
   else return <></>;
 }

@@ -114,9 +114,9 @@ const Header = () => {
 
       <span className='absolute top-1/2 left-[20vw] -translate-x-1/2 -translate-y-1/2 z-0 font-oswald font-thin text-dark dark:text-white animate-pulse'>loading...</span>
 
-      <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 h-full w-full bg-cover'>
+      <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 h-full w-full'>
         {mobile ? (
-          <img src={darkMode ? bgNightPic : bgDayPic} className='h-full sm:w-screen object-cover' alt="header-bg-picture" />
+          <img src={darkMode ? bgNightPic : bgDayPic} className='h-full object-cover -translate-x-[0px]' alt="header-bg-picture" />
         ) : (
           <video src={darkMode ? bgNight : bgDay} id='vid' className='h-full sm:w-screen object-cover'></video>
         )
