@@ -17,7 +17,7 @@
 	overflow: hidden;
     height: 100vh;
     width: 100vw;
-    z-index: 100;
+    z-index: 110;
     background: url('/loader.gif');
     background-size: cover;
     background-repeat: no-repeat;
