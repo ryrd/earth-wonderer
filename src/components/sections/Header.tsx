@@ -58,7 +58,7 @@ const Header = () => {
   const showIt = () => {
     if(earthRef.current.innerText === 'WORLD') {
       setItShowed(true);
-      setTimeout(() => setItShowed(false),3500);
+      setTimeout(() => setItShowed(false),7000);
     }
   }
   
@@ -142,8 +142,7 @@ const Header = () => {
       </motion.picture>
 
       <motion.div className='absolute top-[15vh] md:top-[13vh] text-white font-anton uppercase text-center left-1/2 -translate-x-1/2 drop-shadow-lg transition duration-700 ease-out z-40'
-                  animate={titleUp ? {y: '-50%', filter: 'blur(15px)', opacity: 0, x: '-50%'} : {y: '0%', filter: 'blur(0px)', opacity: 1, x: '-50%'}}
-                  id='earth-title'>
+                  animate={titleUp ? {y: '-50%', filter: 'blur(15px)', opacity: 0, x: '-50%'} : {y: '0%', filter: 'blur(0px)', opacity: 1, x: '-50%'}}>
         <div className='flex items-center justify-center z-10'>
           <div className='h-[2px] portrait:w-[20vw] landscape:w-[10vw] bg-gradient-to-r from-transparent to-offwhite'/>
           <h1 className='text-5xl md:text-[5vw] mx-4 z-10' 
@@ -156,7 +155,7 @@ const Header = () => {
         <h1 className='text-7xl md:text-[10vw] z-0'>wonderer</h1>
       </motion.div>
 
-      <div className={`${itShowed ? 'flex' : 'hidden'} justify-start w-full h-full absolute top-0 left-0 bg-black`}>
+      <div className={`${itShowed ? 'flex' : 'hidden'} justify-start w-full h-full absolute top-0 left-0 bg-black z-50`}>
         <Svg/>
       </div>
 
