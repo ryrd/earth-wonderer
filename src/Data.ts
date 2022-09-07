@@ -200,6 +200,36 @@ const DATA: data[] = [
             'bEX9z0Y4ZAI',
         ]
     },
+    {
+        id : 'tuscani',
+        name : 'Tuscani',
+        location : 'Italy',
+        video : 'CsGg3CwhKPU',
+        videoOwner : 'Gabri',
+        desc : 'Tuscany is a region in central Italy. Tuscany is known for its landscapes, history, artistic legacy, and its influence on high culture.',
+        mapLink : '!1m18!1m12!1m3!1d1268890.2433195224!2d10.45164319844907!3d43.43951364044874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d42b531080347b%3A0xbac6c3ba5b2059ab!2sTuscany%2C%20Italy!5e1!3m2!1sen!2sid!4v1662566326946!5m2!1sen!2sid',
+        mainPhoto : 'r9RW20TrQ0Y',
+        photos : [
+            'r9RW20TrQ0Y',
+            'mZ4RmsyCGDg',
+            '36PWbok7F1s',
+            'qVuF_thaFMY',
+            'fJWYwHWYQpY',
+            'bvz1rW9EgK0',
+            '2Z-nRpQLB5I',
+            'qmZGvH6wDwQ',
+            'Mi0Ut6GnS5U',
+            'CdxSsrYivGc',
+            'DSdT9jXS05A',
+            '5PWIygqZgcg',
+            '_pRSUAZu9gM',
+            'y3Jv0xKSzkI',
+            '4RBdHF3iKAI',
+            'ihz1_e2Mvog',
+            'zQEuJjQo-cY',
+            'ETN1HRiZag8'
+        ]
+    },
 ];
 
 export default DATA;

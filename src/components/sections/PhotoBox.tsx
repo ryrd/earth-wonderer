@@ -8,8 +8,7 @@ interface photoBoxProps {
 
 const PhotoBox = ({photo, setSelectedPhoto}: photoBoxProps) => {
     let yParallax;
-    if(window.innerWidth < window.innerHeight && window.innerWidth < 500) yParallax = -30
-    else yParallax = -40
+    window.innerWidth < window.innerHeight && window.innerWidth < 500 ? yParallax = -20 : yParallax = -40;
 
     const imgRef = useRef(null);
     const {scrollYProgress} = useScroll({ target: imgRef, offset: ["start end", "end start"] });

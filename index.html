@@ -27,9 +27,8 @@
     <script type="module" src="/src/main.tsx"></script>
     <script>
       const preloader = document.querySelector('#preloader');
-      
+
       Pace.on('done', () => {
-        // preloader.style.transform = 'translateY(-110vh)';
         preloader.style.position = 'absolute';
         preloader.style.clipPath = 'polygon(0 0, 100% 0, 100% 0, 0 0)';
         setTimeout(() => {

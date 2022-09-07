@@ -18,10 +18,10 @@
     height: 100vh;
     width: 100vw;
     z-index: 110;
-    background: url('/loader.gif');
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-image: url('/loader.gif');
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     transition: 1.5s cubic-bezier(.12,.86,.2,.98);
 }
