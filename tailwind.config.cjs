@@ -12,6 +12,7 @@ module.exports = {
       white: '#ffffff',
       black: '#000000',
       blue : {
+        600 : 'rgb(37 99 235)',
         900 : '#1e3a8a'
       },
       neutral : {

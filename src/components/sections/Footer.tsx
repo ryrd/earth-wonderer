@@ -8,7 +8,7 @@ const Footer = () => {
             <div className='h-[1px] w-full bg-gradient-to-r from-transparent to-white'/>
           </div>
           <div className='flex justify-between items-center md:items-end font-oswald font-light'>
-            <div className='text-[2.5vw] sm:text-[1vw] md:translate-y-[25%] md:ml-1'>created by <a href='https://ryrd.github.io' className='font-gilda text-blue-900 text-[4vw] sm:text-[1.8vw] underline underline-offset-2 cursor-point' target='_blank'>ryrd</a></div>
+            <div className='text-[2.5vw] sm:text-[1vw] md:translate-y-[25%] md:ml-1'>created by <a href='https://ryrd.github.io' className='font-gilda text-blue-900 dark:text-blue-600 text-[4vw] sm:text-[1.8vw] underline underline-offset-2 cursor-point' target='_blank'>ryrd</a></div>
             <div className='text-[2.5vw] sm:text-[1vw] items-self-end'>2022</div>
           </div>
         </div>
