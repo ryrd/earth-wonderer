@@ -8,7 +8,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    position: absolute;
+    position: fixed;
 	display: flex;
 	justify-content: center;
 	align-items: center;

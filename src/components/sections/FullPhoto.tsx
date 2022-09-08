@@ -13,10 +13,10 @@ const tranProp = {
 const FullPhoto = ({selectedPhoto, setSelectedPhoto}: fullPhotoProps) => {
   
   return (
-    <motion.div className={`${selectedPhoto === null ? 'hidden' : 'flex'} fixed top-0 left-0 z-50 h-screen w-screen justify-center items-center bg-dark bg-opacity-90`}
+    <motion.div className={`${selectedPhoto === null ? 'hidden' : 'flex'} fixed top-0 left-0 z-50 h-screen w-screen justify-center items-center bg-dark bg-opacity-90 cursor-zoom-out`}
                 onClick={() => setSelectedPhoto(null)}>
       <motion.img src={`https://source.unsplash.com/${selectedPhoto}`} 
-                  className='w-auto h-auto max-w-[90%] max-h-[90%] object-contain'
+                  className='w-auto h-auto max-w-[90%] max-h-[90%] object-contain cursor-cursor'
                   alt="full selected photo"
                   onClick={e => e.stopPropagation()}
                   animate={selectedPhoto !== null ? {scale: 1, transition : tranProp} : {scale: .45, transition : tranProp}}

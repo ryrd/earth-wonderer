@@ -30,6 +30,7 @@ module.exports = {
     extend: {
       "headwind.runOnSave": false,
       cursor: {
+        'cursor': 'url(/cursor.svg), pointer',
         'point': 'url(/point.svg), pointer',
       }
     },

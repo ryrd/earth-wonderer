@@ -26,9 +26,15 @@
 
     <script type="module" src="/src/main.tsx"></script>
     <script>
+      const html = window.document.documentElement;
       const preloader = document.querySelector('#preloader');
 
+      html.style.height = '100vh';
+      html.style.overflowY = 'hidden';
+
       Pace.on('done', () => {
+        html.style.height = 'auto';
+        html.style.overflowY = 'scroll';
         preloader.style.position = 'absolute';
         preloader.style.clipPath = 'polygon(0 0, 100% 0, 100% 0, 0 0)';
         setTimeout(() => {
