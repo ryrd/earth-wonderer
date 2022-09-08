@@ -1,10 +1,4 @@
-import React from 'react'
-
-interface ytLink {
-    link: string
-}
-
-const Youtube = ({link}: ytLink) => {
+const Youtube = ({link}: {link: string}) => {
   return (
     <div className='w-full h-full'>
         <iframe

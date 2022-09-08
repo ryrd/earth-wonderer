@@ -1,5 +1,3 @@
-import {} from 'react'
-
 const DetailHeading = ({text}: {text: string}) => {
   return (
     <div className='w-screen portrait:h-10 landscape:h-16 p-5 flex'>

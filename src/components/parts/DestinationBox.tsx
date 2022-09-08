@@ -7,7 +7,7 @@ interface destinationBoxData {
     id: string,
     photo: string,
     name: string,
-    longText?: boolean
+    longText?: 'long' | 'medium'
 }
 
 const DestinationBox = ({id, photo, name, longText}: destinationBoxData) => {
@@ -24,7 +24,7 @@ const DestinationBox = ({id, photo, name, longText}: destinationBoxData) => {
                         style={{y: imgParallaxValue}}
                         />
             <Link to={`/destination/${id}`}>
-                <button className={`absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark backdrop-blur-sm bg-opacity-20 border sm:border-3 border-white dark:border flex items-center justify-center gap-2 md:py-2 md:px-6 group cursor-point ${longText ? 'portrait:min-w-[58vw] lg:portrait:min-w-[18vw] px-0' : 'w-auto px-4'}`}>
+                <button className={`absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark backdrop-blur-sm bg-opacity-20 border sm:border-3 border-white dark:border flex items-center justify-center gap-2 md:py-2 md:px-6 group cursor-point ${longText === 'long' ? 'portrait:min-w-[58vw] lg:portrait:min-w-[18vw] px-0' : longText === 'medium' ? 'portrait:min-w-[51vw] lg:portrait:min-w-[18vw] px-0' : 'w-auto px-4'}`}>
                     <span className='font-anton uppercase text-white tracking-wider text-[7vw] md:text-[5vw]'>{name}</span>
                     <img src={arrow} className='h-[3.5vh] md:h-[9vh] md:portrait:h-[4vh] lg:portrait:h-[3vh] group-hover:translate-x-3 transition duration-400 ease-out'/>
                 </button>

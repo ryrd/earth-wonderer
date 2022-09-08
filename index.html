@@ -28,18 +28,37 @@
     <script>
       const html = window.document.documentElement;
       const preloader = document.querySelector('#preloader');
-
+      
       html.style.height = '100vh';
       html.style.overflowY = 'hidden';
-
+      
+      
       Pace.on('done', () => {
+        let title;
+        if (document.querySelector('#main-title')) {
+          title = document.querySelector('#main-title');
+          
+          title.style.opacity = '0';
+          title.style.transform = 'scale(.6) translate(-73%, 0%)';
+          title.style.filter = 'blur(30px)';
+
+          
+          setTimeout(() => {
+            title.style.opacity = '1';
+            title.style.transform = 'scale(1) translate(-50%, 0%)';
+            title.style.filter = 'blur(0px)';
+          }, 700);
+        }
+
         html.style.height = 'auto';
         html.style.overflowY = 'scroll';
+
         preloader.style.position = 'absolute';
         preloader.style.clipPath = 'polygon(0 0, 100% 0, 100% 0, 0 0)';
+        
         setTimeout(() => {
           document.querySelector('link[href$="/loading-bar.css"]') && document.querySelector('link[href$="/loading-bar.css"]').remove();
-        }, 1500);
+        }, 1000);
       });
     </script>
 

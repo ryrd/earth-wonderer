@@ -1,4 +1,3 @@
-import {} from 'react'
 import DetailHeading from '../parts/DetailHeading'
 import Youtube from '../parts/Youtube'
 

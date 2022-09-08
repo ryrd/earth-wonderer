@@ -7,6 +7,10 @@ interface popupProps {
   setpopup: Dispatch<SetStateAction<{ show: boolean, type: "" | "click" | "input", input: string }>>,
 }
 
+export const txt = (txt: string): string => {
+  return txt.toUpperCase().split('').reverse().join('');
+}
+
 export const Svg = () => {
   return (
     <svg className='w-full h-[80%] landscape:-translate-y-[15%] landscape:-translate-x-[20%]' viewBox="0 0 291 237" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -24,7 +28,7 @@ const Slide = ({popup, setpopup}: popupProps) => {
   const eRef = useRef<HTMLInputElement|any>(null);
 
   useEffect(() => {
-    lRef.current.value = 41
+    window.innerWidth < window.innerHeight ? lRef.current.value = 41 : lRef.current.value = 47
   }, [])
 
   return (
@@ -32,8 +36,8 @@ const Slide = ({popup, setpopup}: popupProps) => {
       <div className='flex flex-col items-center'>
         <label className='mb-4' htmlFor="l">laugh</label>
         <div className='flex relative'>
-          <div className='bg-[#c4c4c4] h-[12px] w-[12vw]'></div>
-          <input ref={lRef} type="range" name="l" id="l" className='inputs w-[68vw]'
+          <div className='bg-[#c4c4c4] h-[12px] portrait:w-[12vw] landscape:w-[5vw]'></div>
+          <input ref={lRef} type="range" name="l" id="l" className='inputs portrait:w-[68vw] landscape:w-[75vw]'
                  onChange={e => {
                    setLaugh(parseInt(e.target.value));
                    setEmpathy(100-parseInt(e.target.value));
@@ -106,10 +110,10 @@ const Vid = ({link, popup, setpopup}: {link: string} & popupProps) => {
 
 const Popup = ({popup, setpopup}: popupProps) => {
   if(popup.type === 'click') return <Slide popup={popup} setpopup={setpopup}/>
-  else if (popup.type === 'input' && popup.input === 'LIFE?') return <Vid popup={popup} setpopup={setpopup} link='ZMzZqgzQqH8'/>
-  else if (popup.type === 'input' && popup.input === 'TIRED') return <Vid popup={popup} setpopup={setpopup} link='4Faf3vMe6Vw'/>
-  else if (popup.type === 'input' && popup.input === 'FEELING') return <Vid popup={popup} setpopup={setpopup} link='ibhm7HLjim8'/>
-  else if (popup.type === 'input' && popup.input === 'IHATEMYFACE') return <Img popup={popup} setpopup={setpopup}/>
+  else if (popup.type === 'input' && popup.input === txt('?efil')) return <Vid popup={popup} setpopup={setpopup} link='ZMzZqgzQqH8'/>
+  else if (popup.type === 'input' && popup.input === txt('derit')) return <Vid popup={popup} setpopup={setpopup} link='4Faf3vMe6Vw'/>
+  else if (popup.type === 'input' && popup.input === txt('gnileef')) return <Vid popup={popup} setpopup={setpopup} link='ibhm7HLjim8'/>
+  else if (popup.type === 'input' && popup.input === txt('ecafymetahi')) return <Img popup={popup} setpopup={setpopup}/>
   else return <></>;
 }
 

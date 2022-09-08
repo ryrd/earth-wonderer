@@ -21,6 +21,7 @@ import mountainOneNightPng from '../../assets/header/night/mountain-1-night.png'
 import mountainOneNightWebp from '../../assets/header/night/mountain-1-night.webp'
 import mountainTwoNightPng from '../../assets/header/night/mountain-2-night.png'
 import mountainTwoNightWebp from '../../assets/header/night/mountain-2-night.webp'
+import { txt } from '../parts/Popup';
 import { Svg } from '../parts/Popup';
 
 const Header = () => {
@@ -56,7 +57,7 @@ const Header = () => {
   const earthRef = useRef<any>(null);
   const [itShowed, setItShowed] = useState(false);
   const showIt = () => {
-    if(earthRef.current.innerText === 'WORLD') {
+    if(earthRef.current.innerText === txt('dlrow')) {
       setItShowed(true);
       setTimeout(() => setItShowed(false),3500);
     }
@@ -141,8 +142,9 @@ const Header = () => {
           <img src={darkMode ? mountainOneNightWebp : mountainOneWebp} className='w-full'/>
       </motion.picture>
 
-      <motion.div className='absolute top-[15vh] md:top-[13vh] text-white font-anton uppercase text-center left-1/2 -translate-x-1/2 drop-shadow-lg transition duration-700 ease-out z-40'
-                  animate={titleUp ? {y: '-50%', filter: 'blur(15px)', opacity: 0, x: '-50%'} : {y: '0%', filter: 'blur(0px)', opacity: 1, x: '-50%'}}>
+      <motion.div className='absolute top-[15vh] md:top-[13vh] text-white font-anton uppercase text-center left-1/2 -translate-x-1/2 drop-shadow-lg transition duration-700 ease-out z-40 origin-center'
+                  animate={titleUp ? {y: '-50%', filter: 'blur(15px)', opacity: 0, x: '-50%'} : {y: '0%', filter: 'blur(0px)', opacity: 1, x: '-50%'}}
+                  id='main-title'>
         <div className='flex items-center justify-center z-10'>
           <div className='h-[2px] portrait:w-[20vw] landscape:w-[10vw] bg-gradient-to-r from-transparent to-offwhite'/>
           <h1 className='text-5xl md:text-[5vw] mx-4 z-10' 

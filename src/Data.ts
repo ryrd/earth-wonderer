@@ -8,7 +8,7 @@ interface data {
     mapLink: string;
     mainPhoto: string;
     photos: string[];
-    longText? : boolean;
+    longText? : 'long' | 'medium';
 };
 
 const DATA: data[] = [
@@ -129,7 +129,7 @@ const DATA: data[] = [
             'wcIrrQXWkTA',
             'L18akQEC84A'
         ],
-        longText: true
+        longText: 'long'
     },
     {
         id : 'alpesiusi',
@@ -150,7 +150,7 @@ const DATA: data[] = [
             'PPxXBRp71dI',
             'vzkJYHVPywE',
         ],
-        longText: true
+        longText: 'medium'
     },
     
     {
@@ -208,7 +208,7 @@ const DATA: data[] = [
         videoOwner : 'Gabri',
         desc : 'Val d\'Orcia is a land of rare beauty where human activity and nature perfectly blend to give life to a landscape designed in the Renaissance to represent the ideal of beauty. For these reasons Val d\'Orcia was recognized in 2004 as a UNESCO World Heritage Site.',
         mapLink : '!1m18!1m12!1m3!1d1270730.329943726!2d9.907819956261573!3d43.35170103355875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d42b531080347b%3A0xbac6c3ba5b2059ab!2sTuscany%2C%20Italy!5e1!3m2!1sen!2sid!4v1662618970772!5m2!1sen!2sid',
-        mainPhoto : 'Mi0Ut6GnS5U',
+        mainPhoto : 'r9RW20TrQ0Y',
         photos : [
             'r9RW20TrQ0Y',
             'mZ4RmsyCGDg',
@@ -229,7 +229,7 @@ const DATA: data[] = [
             'zQEuJjQo-cY',
             'ETN1HRiZag8'
         ],
-        longText: true,
+        longText: 'medium',
     },
 ];
 

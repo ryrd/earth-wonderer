@@ -22,8 +22,7 @@ const PhotoBox = ({photo, setSelectedPhoto}: photoBoxProps) => {
             >
             <img src="/polaroid.webp" className='absolute top-0 w-full h-full object-fill z-10'/>
             <motion.img src={`https://source.unsplash.com/${photo}`} className='w-auto sm:w-auto object-cover transition duration-500 ease-out' 
-                        style={{y: imgParallaxValue, scale: 1.2}}
-                        />
+                        style={{y: imgParallaxValue, scale: 1.2}}/>
         </div>
     )
 }
