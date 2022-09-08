@@ -111,8 +111,8 @@ const Vid = ({link, popup, setpopup}: {link: string} & popupProps) => {
 const Popup = ({popup, setpopup}: popupProps) => {
   if(popup.type === 'click') return <Slide popup={popup} setpopup={setpopup}/>
   else if (popup.type === 'input' && popup.input === txt('?efil')) return <Vid popup={popup} setpopup={setpopup} link='ZMzZqgzQqH8'/>
-  else if (popup.type === 'input' && popup.input === txt('derit')) return <Vid popup={popup} setpopup={setpopup} link='4Faf3vMe6Vw'/>
-  else if (popup.type === 'input' && popup.input === txt('gnileef')) return <Vid popup={popup} setpopup={setpopup} link='ibhm7HLjim8'/>
+  else if (popup.type === 'input' && popup.input === txt('leef')) return <Vid popup={popup} setpopup={setpopup} link='4Faf3vMe6Vw'/>
+  else if (popup.type === 'input' && popup.input === txt('derit')) return <Vid popup={popup} setpopup={setpopup} link='ibhm7HLjim8'/>
   else if (popup.type === 'input' && popup.input === txt('ecafymetahi')) return <Img popup={popup} setpopup={setpopup}/>
   else return <></>;
 }
