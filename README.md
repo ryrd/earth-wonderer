@@ -4,7 +4,7 @@ https://earth-wonderer-ryrd.netlify.app
 
 _recommended to view on desktop and chrome browser_
 
-create with:
+created with:
 - react + typescript
 - tailwind
 - framer motion
