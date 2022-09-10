@@ -26,6 +26,7 @@ const Slide = ({popup, setpopup}: popupProps) => {
   const [empathy, setEmpathy] = useState(0);
   const lRef = useRef<HTMLInputElement|any>(null);
   const eRef = useRef<HTMLInputElement|any>(null);
+  const [second, setSecond] = useState(false);
 
   useEffect(() => {
     window.innerWidth < window.innerHeight ? lRef.current.value = 41 : lRef.current.value = 47
@@ -66,12 +67,50 @@ const Slide = ({popup, setpopup}: popupProps) => {
           </svg>
         </motion.div>}
       </div>
+      {second && <SlideTwo />}
+
+      <button className='absolute top-[8vh] right-[5vw] w-4 h-4 rounded-full bg-offwhite'
+              onClick={() => setSecond(!second)}/>
 
       <button className='absolute top-[5vh] portrait:left-[3vw] landscape:left-[5vw] w-4'
               onClick={() => setpopup({...popup, show: false, type: ''})}>
         <div className='h-[2px] w-[80%] bg-white bg-opacity-60 rotate-45'>&nbsp;</div>
         <div className='h-[2px] w-[80%] bg-white bg-opacity-60 -rotate-45 -translate-y-[100%]'>&nbsp;</div>
       </button>
+    </div>
+  )
+}
+
+const SlideTwo = () => {
+  const [anger, setAnger] = useState(0);
+  const [intelligence, setIntelligence] = useState(0);
+  const aRef = useRef<HTMLInputElement|any>(null);
+  const iRef = useRef<HTMLInputElement|any>(null);
+
+  return (
+    <div className='absolute z-[100] top-1/2 left-0 -translate-y-1/2 w-full h-[50%] bg-dark text-offwhite flex flex-col justify-center items-center gap-28 font-oswald font-thin'>
+      <div className='flex flex-col items-center'>
+        <label className='mb-4' htmlFor="l">anger</label>
+        <div className='flex relative'>
+          <input ref={aRef} type="range" name="l" id="l" className='inputs w-[80vw]'
+                 onChange={e => {
+                   setAnger(parseInt(e.target.value));
+                   setIntelligence(100-parseInt(e.target.value));
+                   iRef.current.value = intelligence;
+                 }}
+          />
+        </div>
+      </div>
+      <div className='relative flex flex-col items-center'>
+        <label className='mb-4 z-0' htmlFor="e">intelligence + empathy</label>
+        <input ref={iRef} type="range" name="e" id="e" className='inputs w-[80vw] z-0'
+               onChange={e => {
+                setIntelligence(parseInt(e.target.value));
+                setAnger(100-parseInt(e.target.value));
+                aRef.current.value = anger;
+               }}
+        />
+      </div>
     </div>
   )
 }
