@@ -21,6 +21,7 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: #050505;
     background-image: url('/loader.gif');
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     transition: 1.5s cubic-bezier(.12,.86,.2,.98);

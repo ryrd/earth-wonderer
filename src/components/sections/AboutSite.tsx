@@ -27,7 +27,7 @@ const About = ({popup, setpopup} : popupProps) => {
         <span className='font-oswald uppercase font-bold text-sm md:text-[2vw]'>Earth Wonderer</span> is a dummy travel destination site created by 
         <a href='https://ryrd.github.io' target='_blank'><span className='text-blue-900 dark:text-blue-600 font-gilda underline ml-1 md:ml-2 cursor-point'>ryrd</span>.</a> 
         &nbsp; this site is showing 2 cities, Banjarmasin and Kotabaru 
-        from south Borneo Indonesia. and few underrate 
+        from south Borneo Indonesia, and few underrate 
         but beautiful location around the world.
       </p>
 
