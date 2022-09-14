@@ -21,7 +21,7 @@ const DetailHeader = ({img, name, location}: detailHeaderProps) => {
   return (
     <div className='relative flex items-center w-screen portrait:h-[80vh] landscape:h-screen overflow-hidden'>
       <motion.img className='z-0 object-cover w-full h-full' 
-                  src={`https://source.unsplash.com/${img}`} 
+                  src={`${img}`} 
                   alt="heading img"
                   ref={imgRef}
                   style={{scale: imgScaleValue}}

@@ -19,7 +19,7 @@ const DestinationBox = ({id, photo, name, longText}: destinationBoxData) => {
     return (
         <div className='relative min-h-[100px] portrait:h-[28vh] landscape:h-[90vh] overflow-hidden flex items-end'
              ref={imgRef}>
-            <motion.img src={`https://source.unsplash.com/${photo}`} 
+            <motion.img src={`${photo}`} 
                         className='w-[100%] portrait:h-[180%] landscape:h-[120%] object-cover'
                         style={{y: imgParallaxValue}}
                         />

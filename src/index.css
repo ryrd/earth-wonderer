@@ -18,7 +18,6 @@ body{
 }
 .bg-night{
   background-color: #050505;
-  background-image: url("/texturedark.png");
 }
 
 .header-gradient{
