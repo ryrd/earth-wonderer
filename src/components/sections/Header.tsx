@@ -100,7 +100,7 @@ const Header = () => {
 
     return () => {
       window.removeEventListener('scroll', () => {
-        setScrollPos();
+        window.innerWidth > 500 && setScrollPos();
         window.scrollY > 10 ? setTitleUp(true) : setTitleUp(false);
       });
       window.removeEventListener('mousemove', (e: MouseEvent) => horizontalParallax(e));
@@ -146,13 +146,13 @@ const Header = () => {
                   animate={titleUp ? {y: '-50%', filter: 'blur(15px)', opacity: 0, x: '-50%'} : {y: '0%', filter: 'blur(0px)', opacity: 1, x: '-50%'}}
                   id='main-title'>
         <div className='flex items-center justify-center z-10'>
-          <div className='h-[2px] portrait:w-[20vw] landscape:w-[10vw] bg-gradient-to-r from-transparent to-offwhite'/>
+          <div className='portrait:h-[.3vh] landscape:h-[.5vh] portrait:w-[20vw] landscape:w-[14vw] bg-gradient-to-r from-transparent to-offwhite'/>
           <h1 className='text-5xl md:text-[5vw] mx-4 z-10' 
               contentEditable suppressContentEditableWarning={true}
               ref={earthRef}>
                 earth
           </h1>
-          <div className='h-[2px] portrait:w-[20vw] landscape:w-[10vw] bg-gradient-to-l from-transparent to-offwhite'/>
+          <div className='portrait:h-[.3vh] landscape:h-[.5vh] portrait:w-[20vw] landscape:w-[14vw] bg-gradient-to-l from-transparent to-offwhite'/>
         </div>
         <h1 className='text-7xl md:text-[10vw] z-0'>wonderer</h1>
       </motion.div>
