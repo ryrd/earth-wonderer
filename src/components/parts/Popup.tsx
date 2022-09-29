@@ -29,7 +29,7 @@ const Slide = ({popup, setpopup}: popupProps) => {
   const [second, setSecond] = useState(false);
 
   useEffect(() => {
-    window.innerWidth < window.innerHeight ? lRef.current.value = 41 : lRef.current.value = 47
+    window.innerWidth < window.innerHeight ? lRef.current.value = 46 : lRef.current.value = 49
   }, [])
 
   return (
@@ -38,7 +38,7 @@ const Slide = ({popup, setpopup}: popupProps) => {
         <label className='mb-4' htmlFor="l">laugh</label>
         <div className='flex relative'>
           <div className='bg-[#c4c4c4] h-[12px] portrait:w-[6vw] landscape:w-[2vw]'></div>
-          <input ref={lRef} type="range" name="l" id="l" className='inputs portrait:w-[74vw] landscape:w-[79vw]'
+          <input ref={lRef} type="range" name="l" id="l" className='inputs portrait:w-[74vw] landscape:w-[78vw]'
                  onChange={e => {
                    setLaugh(parseInt(e.target.value));
                    setEmpathy(100-parseInt(e.target.value));
