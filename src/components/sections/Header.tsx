@@ -97,6 +97,9 @@ const Header = () => {
 
     //check mobile
     window.innerWidth < 500 ? setMobile(true) : setMobile(false);
+    window.addEventListener('resize', ()=>{
+      window.innerWidth < 500 ? setMobile(true) : setMobile(false);
+    })
 
     return () => {
       window.removeEventListener('scroll', () => {
@@ -105,6 +108,9 @@ const Header = () => {
       });
       window.removeEventListener('mousemove', (e: MouseEvent) => horizontalParallax(e));
       clearInterval(videoInterval);
+      window.removeEventListener('resize', ()=>{
+        window.innerWidth < 500 ? setMobile(true) : setMobile(false);
+      })
     }
   }, [])
 

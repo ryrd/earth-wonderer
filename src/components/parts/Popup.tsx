@@ -37,8 +37,8 @@ const Slide = ({popup, setpopup}: popupProps) => {
       <div className='flex flex-col items-center'>
         <label className='mb-4' htmlFor="l">laugh</label>
         <div className='flex relative'>
-          <div className='bg-[#c4c4c4] h-[12px] portrait:w-[12vw] landscape:w-[5vw]'></div>
-          <input ref={lRef} type="range" name="l" id="l" className='inputs portrait:w-[68vw] landscape:w-[75vw]'
+          <div className='bg-[#c4c4c4] h-[12px] portrait:w-[6vw] landscape:w-[2vw]'></div>
+          <input ref={lRef} type="range" name="l" id="l" className='inputs portrait:w-[74vw] landscape:w-[79vw]'
                  onChange={e => {
                    setLaugh(parseInt(e.target.value));
                    setEmpathy(100-parseInt(e.target.value));
@@ -50,7 +50,7 @@ const Slide = ({popup, setpopup}: popupProps) => {
         </div>
       </div>
       <div className='relative flex flex-col items-center'>
-        <label className='mb-4 z-0' htmlFor="e">empathy</label>
+        <label className='mb-4 z-0' htmlFor="e">intelligence + empathy</label>
         <input ref={eRef} type="range" name="e" id="e" className='inputs w-[80vw] z-0'
                onChange={e => {
                 setEmpathy(parseInt(e.target.value));
