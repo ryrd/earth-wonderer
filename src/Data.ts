@@ -74,13 +74,8 @@ const DATA: data[] = [
             'https://source.unsplash.com/CZUYQ0HeQtw',
             'https://source.unsplash.com/JhdWve4dA_g',
             'https://source.unsplash.com/Ta65aCJ2NeE',
-            'https://source.unsplash.com/jUlANrPHzAA',
-            'https://source.unsplash.com/58vqS8ul5cw',
-            'https://source.unsplash.com/YJEpFxBmNho',
-            'https://source.unsplash.com/3CBAY14swMo',
             'https://source.unsplash.com/03BlWOo9rq8',
             'https://source.unsplash.com/Du2CTKPWEFs',
-            'https://source.unsplash.com/bpWcVQY9O5c',
             'https://source.unsplash.com/VJlLx10OYRo'
         ]
     },
@@ -216,7 +211,6 @@ const DATA: data[] = [
             'https://source.unsplash.com/36PWbok7F1s',
             'https://source.unsplash.com/qVuF_thaFMY',
             'https://source.unsplash.com/fJWYwHWYQpY',
-            'https://source.unsplash.com/bvz1rW9EgK0',
             'https://source.unsplash.com/2Z-nRpQLB5I',
             'https://source.unsplash.com/qmZGvH6wDwQ',
             'https://source.unsplash.com/Mi0Ut6GnS5U',
